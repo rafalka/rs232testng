@@ -2,6 +2,8 @@
 #define RS232TESTNG_H
 
 #include <QtGui/QMainWindow>
+#include <QToolBar>
+
 #include "ui_rs232testng.h"
 
 class rs232testng : public QMainWindow
@@ -13,7 +15,8 @@ public:
     ~rs232testng();
 
 private:
-    Ui::rs232testngClass ui;
+    QToolBar *mainToolBar;
+    Ui::MainWindow ui;
 };
 
 #endif // RS232TESTNG_H

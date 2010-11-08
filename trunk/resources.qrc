@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/buttons">
+        <file alias="AppExit">res/application-exit.png</file>
+        <file alias="AppConf">res/configure.png</file>
+        <file alias="BtnOk">res/dialog-ok.png</file>
+        <file alias="AppSave">res/document-save.png</file>
+        <file alias="AppHelp">res/help.png</file>
+        <file alias="BtnPause">res/tool_pause.png</file>
+        <file alias="BtnPlay">res/tool_resume.png</file>
+        <file alias="BtnStopS">res/media-playback-stop.png</file>
+    </qresource>
+</RCC>
