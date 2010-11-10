@@ -2,7 +2,8 @@
 #define RS232TESTNG_H
 
 #include <QtGui/QMainWindow>
-#include <QToolBar>
+#include <QtGui/QToolBar>
+#include <QComboBox>
 
 #include "ui_rs232testng.h"
 
@@ -15,7 +16,9 @@ public:
     ~rs232testng();
 
 private:
-    QToolBar *mainToolBar;
+    QToolBar   *mainToolBar;
+    QComboBox  *selCombo;
+
     Ui::MainWindow ui;
 };
 
