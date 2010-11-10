@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'rs232testng.ui'
 **
-** Created: Mon 8. Nov 23:46:28 2010
+** Created: Tue 9. Nov 22:21:50 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
