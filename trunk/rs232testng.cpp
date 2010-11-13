@@ -5,6 +5,8 @@ rs232testng::rs232testng(QWidget *parent)
     : QMainWindow(parent)
 {
 	ui.setupUi(this);
+
+	/*
 	mainToolBar = new QToolBar();
 	mainToolBar->addAction(ui.actionStart);
 	mainToolBar->addSeparator();
@@ -17,6 +19,20 @@ rs232testng::rs232testng(QWidget *parent)
 	selCombo = new QComboBox(ui.srcSelDock);
 	selCombo->addItems(QStringList() << "Ala" << "Ma" << "Kota" );
 	ui.srcSelDock->setWidget(selCombo);
+	*/
+	ui.btnSrcHelp->setDefaultAction(ui.actSrcHelp);
+	ui.btnSrcConf->setDefaultAction(ui.actSrcConf);
+
+	ui.btnInHelp->setDefaultAction(ui.actInHelp);
+	ui.btnInConf->setDefaultAction(ui.actInConf);
+
+	ui.btnOutHelp->setDefaultAction(ui.actOutHelp);
+	ui.btnOutConf->setDefaultAction(ui.actOutConf);
+
+	ui.btnShowInHist->setDefaultAction(ui.actShowInHist);
+	ui.btnShowMacros->setDefaultAction(ui.actShowMacros);
+
+	ui.btnAppExit->setDefaultAction(ui.actAppExit);
 
 }
 

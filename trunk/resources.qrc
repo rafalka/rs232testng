@@ -8,5 +8,34 @@
         <file alias="BtnPause">res/tool_pause.png</file>
         <file alias="BtnPlay">res/tool_resume.png</file>
         <file alias="BtnStopS">res/media-playback-stop.png</file>
+        <file>res/application-exit.png</file>
+        <file>res/arrow-down.png</file>
+        <file>res/arrow-right.png</file>
+        <file>res/cancel.png</file>
+        <file>res/configure.png</file>
+        <file>res/configure-toolbars.png</file>
+        <file>res/dialog-close.png</file>
+        <file>res/dialog-error.png</file>
+        <file>res/dialog-information.png</file>
+        <file>res/dialog-ok.png</file>
+        <file>res/dialog-password.png</file>
+        <file>res/dialog-warning.png</file>
+        <file>res/document-save.png</file>
+        <file>res/document-save-as.png</file>
+        <file>res/edit-cut.png</file>
+        <file>res/edit-delete.png</file>
+        <file>res/edit-paste.png</file>
+        <file>res/edit-redo.png</file>
+        <file>res/edit-undo.png</file>
+        <file>res/help.png</file>
+        <file>res/media-playback-pause.png</file>
+        <file>res/media-playback-start.png</file>
+        <file>res/media-playback-stop.png</file>
+        <file>res/media-playlist-repeat.png</file>
+        <file>res/media-playlist-shuffle.png</file>
+        <file>res/noatunplay.png</file>
+        <file>res/tool_pause.png</file>
+        <file>res/tool_resume.png</file>
+        <file>res/user-trash-full.png</file>
     </qresource>
 </RCC>
