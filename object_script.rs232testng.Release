@@ -1,0 +1,15 @@
+INPUT(
+./release\QSourceManager.o
+./release\SourceProviderFactory.o
+./release\OutputProviderFactory.o
+./release\InputProviderFactory.o
+./release\OutpuProvider.o
+./release\InputProvider.o
+./release\SourceProvider.o
+./release\QDynSelDock.o
+./release\main.o
+./release\rs232testng.o
+./release\moc_QSourceManager.o
+./release\moc_rs232testng.o
+./release\qrc_resources.o
+);
