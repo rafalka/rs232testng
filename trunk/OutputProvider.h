@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file     SourceProvider.cpp
+ * @file     OutputProvider.h
  * 
  * @brief    
  * 
@@ -12,11 +12,23 @@
  ******************************************************************************
  */
 
-#include "SourceProvider.h"
+#ifndef OUTPUTPROVIDER_H_
+#define OUTPUTPROVIDER_H_
 
-
-
-SourceProvider::~SourceProvider()
+/*
+ *
+ */
+class OutputProvider
 {
-	// TODO Auto-generated destructor stub
-}
+    bool         m_onConfigActive;
+    bool         m_onHelpAllowed;
+    virtual void m_onConfig() = 0;
+    virtual void m_onHelp() = 0;
+public:
+    void onConfig() {if (m_onConfigActive ) m_onConfig(); }
+    void onHelp()   {if (m_onHelpAllowed) m_onHelp(); }
+	OutputProvider():m_onConfigActive(false),m_onHelpAllowed(false){};
+	//virtual ~OutpuProvider(){};
+};
+
+#endif /* OUTPUTPROVIDER_H_ */

@@ -16,16 +16,35 @@
 #ifndef INPUTPROVIDERFACTORY_H_
 #define INPUTPROVIDERFACTORY_H_
 
+#include <QObject>
+#include <QIcon>
+#include <QString>
+#include <QVariant>
+
 #include "InputProvider.h"
 
+typedef bool (QObject::*InputProviderEnumCallback)(int            itemID,
+                                                   const QString& name,
+		                                           const QIcon*   icon,
+	   	                                           QVariant*      cbParam );
 /*
  *
  */
-class InputProviderFactory
+#define InFac InputProviderFactory::instance()
+
+//class InputProviderFactory;
+
+class InputProviderFactory: public QObject
 {
-public:
+    Q_OBJECT
+private:
+    static InputProviderFactory s;
 	InputProviderFactory();
 	virtual ~InputProviderFactory();
+public:
+	int EnumProviders(QObject& obj, InputProviderEnumCallback cb, QVariant* cbParam  = NULL );
+
+	static InputProviderFactory& instance() { return InputProviderFactory::s; }
 };
 
 #endif /* INPUTPROVIDERFACTORY_H_ */

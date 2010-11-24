@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file     SourceProvider.cpp
+ * @file     OutputProvider.cpp
  * 
  * @brief    
  * 
@@ -12,11 +12,7 @@
  ******************************************************************************
  */
 
-#include "SourceProvider.h"
+#include "OutputProvider.h"
 
 
 
-SourceProvider::~SourceProvider()
-{
-	// TODO Auto-generated destructor stub
-}
