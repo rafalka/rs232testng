@@ -16,16 +16,17 @@ public:
 	QAction*    getActSrcHelp() { return ui.actSrcHelp; }
 	QAction*    getActSrcConf() { return ui.actSrcConf; }
 	QComboBox*  getCmbSrcAddr() { return ui.editSrcAddress; }
-	QAction*    getActSrcConn() { return ui.actSrcConnect; }
+	QAction*    getActSrcConn() { return ui.actSrcConn; }
 
     rs232testng(QWidget *parent = 0);
     ~rs232testng();
+
+    Ui::MainWindow ui;
 
 private:
     QToolBar   *mainToolBar;
     QComboBox  *selCombo;
 
-    Ui::MainWindow ui;
 };
 
 #endif // RS232TESTNG_H

@@ -18,6 +18,8 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QComboBox>
+
+#include "SourceProvider.h"
 /*
  *
  */
@@ -25,6 +27,8 @@ class QSourceManager: public QObject
 {
 	Q_OBJECT
 private:
+	SourceProvider* currentProvider;
+
 	QComboBox*   cmbSourceSelect;
 	QAction*     actShowHelp;
 	QAction*     actShowConf;
@@ -37,8 +41,18 @@ private:
 	void         connectAddressEdit();
 	void         connectRunAction();
 
+	void         setProvider(SourceProvider* newProvider);
+
+	bool         SourcesEnumCallback(int itemID,
+                    const QString& name,
+                    const QIcon*   icon,
+                    QVariant*      cbParam );
 public slots:
+	void         actShowHelpTriggered();
+    void         actShowConfTriggered();
 	void         actRunTriggered();
+	void         cmbSourceSelectActivated( int index );
+    void         cmbAddressEditActivated( int index );
 
 public:
 	QSourceManager(

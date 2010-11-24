@@ -1,9 +1,9 @@
 /******************************************************************************
- * @file     OutpuProvider.cpp
+ * @file     SerialSourceProvider.h
  * 
  * @brief    
  * 
- * @date     12-11-2010
+ * @date     18-11-2010
  * @author   Rafal Kukla
  ******************************************************************************
  *            Copyright (C) 2010 Rafal Kukla  ( rkdevel@gmail.com )
@@ -12,15 +12,25 @@
  ******************************************************************************
  */
 
-#include "OutpuProvider.h"
+#ifndef SERIALSOURCEPROVIDER_H_
+#define SERIALSOURCEPROVIDER_H_
 
-OutpuProvider::OutpuProvider()
+/*
+ *
+ */
+#include "SourceProvider.h"
+
+class SerialSourceProvider: public SourceProvider
 {
-	// TODO Auto-generated constructor stub
+protected:
+    void       m_onConfig();
+    void       m_onHelp();
+public:
+    static const char*   myName        ;
+    static const QString myDisplayName ;
 
-}
+    SerialSourceProvider();
+    virtual ~SerialSourceProvider();
+};
 
-OutpuProvider::~OutpuProvider()
-{
-	// TODO Auto-generated destructor stub
-}
+#endif /* SERIALSOURCEPROVIDER_H_ */

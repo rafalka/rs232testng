@@ -14,6 +14,21 @@
 
 #include "InputProviderFactory.h"
 
+// Instancing
+InputProviderFactory InputProviderFactory::s;
+
+int InputProviderFactory::EnumProviders(QObject& obj, InputProviderEnumCallback cb, QVariant* cbParam)
+{
+    if (!cb) return -1;
+
+    (obj.*cb)(1,"Co",NULL,cbParam);
+    (obj.*cb)(2,"Za",NULL,cbParam);
+    (obj.*cb)(3,"Kupa!!!",NULL,cbParam);
+
+    return 3;
+}
+
+
 InputProviderFactory::InputProviderFactory()
 {
 	// TODO Auto-generated constructor stub

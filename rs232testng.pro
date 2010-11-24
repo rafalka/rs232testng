@@ -2,22 +2,36 @@ TEMPLATE = app
 TARGET = rs232testng
 QT += core \
     gui
-HEADERS += QSourceManager.h \
+HEADERS += QHtmlDisplayStreamItem.h \
+    QTextEditStreamItem.h \
+    debug.h \
+    StreamItem.h \
+    DataChunk.h \
+    GuiItemCmd.h \
+    SerialSourceProvider.h \
+    OutputProvider.h \
+    QSourceManager.h \
     SourceProviderFactory.h \
     OutputProviderFactory.h \
     InputProviderFactory.h \
-    OutpuProvider.h \
     InputProvider.h \
     SourceProvider.h \
     plugapi/stdtype.h \
     plugapi/vartype.h \
     QDynSelDock.h \
     rs232testng.h
-SOURCES += QSourceManager.cpp \
+SOURCES += debug.cpp \
+    QHtmlDisplayStreamItem.cpp \
+    QTextEditStreamItem.cpp \
+    StreamItem.cpp \
+    DataChunk.cpp \
+    GuiItemCmd.cpp \
+    SerialSourceProvider.cpp \
+    OutputProvider.cpp \
+    QSourceManager.cpp \
     SourceProviderFactory.cpp \
     OutputProviderFactory.cpp \
     InputProviderFactory.cpp \
-    OutpuProvider.cpp \
     InputProvider.cpp \
     SourceProvider.cpp \
     QDynSelDock.cpp \

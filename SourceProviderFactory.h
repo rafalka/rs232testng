@@ -16,14 +16,39 @@
 #ifndef SOURCEPROVIDERFACTORY_H_
 #define SOURCEPROVIDERFACTORY_H_
 
+#include <QObject>
+#include <QIcon>
+#include <QString>
+#include <QVariant>
+
 #include "SourceProvider.h"
+#include "SerialSourceProvider.h"
+#include "GuiItemCmd.h"
+
+/*
+typedef bool (QObject::*SourceProviderEnumCallback)(int            itemID,
+                                                   const QString& name,
+                                                   const QIcon*   icon,
+                                                   QVariant*      cbParam );
+*/
+#define SrcFac SourceProviderFactory::instance()
+
 
 /*
  *
  */
 class SourceProviderFactory
 {
+private:
+    static SourceProviderFactory s;
 public:
+    /*
+    int  EnumProviders(QObject& obj, SourceProviderEnumCallback cb, QVariant* cbParam  = NULL );
+    */
+    void EnumProviders(GuiItemCmd& callbackCmd);
+
+    void ReleaseProvider(SourceProvider* provider) { if (provider) delete provider; }
+    static SourceProviderFactory& instance() { return SourceProviderFactory::s; }
 	SourceProviderFactory();
 	virtual ~SourceProviderFactory();
 };

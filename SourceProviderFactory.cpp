@@ -13,6 +13,24 @@
  */
 
 #include "SourceProviderFactory.h"
+#include "SerialSourceProvider.h"
+// Instancing
+SourceProviderFactory SourceProviderFactory::s;
+
+
+
+enum providers {
+    PR_SERIAL,
+    PR_INTCONFIG
+};
+
+void SourceProviderFactory::EnumProviders(GuiItemCmd& callbackCmd)
+{
+    callbackCmd.doWith( SerialSourceProvider::myDisplayName ,GuiItemCmd::NoIcon, PR_SERIAL );
+    callbackCmd.doWith( GuiItemCmd::ItemSeparator);
+    callbackCmd.doWith( QObject::tr("Config"),GuiItemCmd::NoIcon,PR_INTCONFIG);
+
+}
 
 SourceProviderFactory::SourceProviderFactory()
 {

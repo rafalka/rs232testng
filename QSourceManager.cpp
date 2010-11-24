@@ -17,16 +17,19 @@
 #include <QStringList>
 
 #include "QSourceManager.h"
+#include "SourceProviderFactory.h"
+
 
 QSourceManager::QSourceManager(
 		QComboBox*   cmbSourceSelect,
-		QAction*     aactShowHelp,
+		QAction*     actShowHelp,
 		QAction*     actShowConf,
 		QComboBox*   cmbAddressEdit,
 		QAction*     actRun
 		):
+		currentProvider(NULL),
 		cmbSourceSelect(cmbSourceSelect),
-		actShowHelp(aactShowHelp),
+		actShowHelp(actShowHelp),
 		actShowConf(actShowConf),
 		cmbAddressEdit(cmbAddressEdit),
 		actRun(actRun)
@@ -37,36 +40,63 @@ QSourceManager::QSourceManager(
 	connectShowHelp();
 	connectAddressEdit();
 	connectRunAction();
+
+	ComboItemAddCmd srcEnumerator(cmbSourceSelect);
+	SrcFac.EnumProviders( srcEnumerator );
 }
 
-void QSourceManager::connectShowHelp()
+void QSourceManager::setProvider(SourceProvider* newProvider)
 {
-	// TODO Auto-generated method stub
+    SourceProvider* tmpProvider = currentProvider;
+
+    currentProvider = newProvider;
+
+    if (tmpProvider) SrcFac.ReleaseProvider(tmpProvider);
+
+    actShowHelp->setEnabled( newProvider->isOnHelpAllowed() );
+    actShowConf->setEnabled( newProvider->isOnConfigAllowed() );
+    cmbAddressEdit->setEditable( newProvider->isFreeAddrEditAllowed() );
 }
 
-void QSourceManager::connectAddressEdit()
+void QSourceManager::actShowHelpTriggered()
 {
-	// TODO Auto-generated method stub
+    if (currentProvider) currentProvider->onHelp();
 }
 
-void QSourceManager::connectSourceSelect()
+void QSourceManager::actShowConfTriggered()
 {
-	// TODO Auto-generated method stub
-	cmbSourceSelect->addItems( QStringList() << "Ala" << "Ma " << "Kota" );
+    if (currentProvider) currentProvider->onConfig();
+    cmbAddressEdit->showPopup();
+
 }
 
-void QSourceManager::connectShowConf()
+void QSourceManager::cmbSourceSelectActivated(int index)
 {
-	// TODO Auto-generated method stub
 }
 
-void QSourceManager::connectRunAction()
+void QSourceManager::cmbAddressEditActivated(int index)
 {
-	// TODO Auto-generated method stub
-	Q_ASSERT( QObject::connect(actShowHelp, SIGNAL( triggered() ),
-			this,   SLOT( actRunTriggered() ) )
-	 	 );
 }
+
+/*
+bool QSourceManager::SourcesEnumCallback(int itemID, const QString& name, const QIcon *icon, QVariant *cbParam)
+{
+    if ( !name.isEmpty() )
+    {
+        if (icon)
+            cmbSourceSelect->addItem( *icon, name, itemID);
+        else
+            cmbSourceSelect->addItem( name, itemID);
+    }
+    else
+    {
+        cmbSourceSelect->insertSeparator(65535);
+    }
+
+    return true;
+}
+*/
+
 /*
 QSourceManager::~QSourceManager()
 {
@@ -77,8 +107,38 @@ QSourceManager::~QSourceManager()
 
 void QSourceManager::actRunTriggered()
 {
-	 QMessageBox msgBox;
-	 msgBox.setText("actRunTriggered!!!");
-	 msgBox.exec();
+    QMessageBox msgBox;
+    msgBox.setText("actShowConfTriggered!!!");
+    msgBox.exec();
+}
 
+
+void QSourceManager::connectShowHelp()
+{
+    Q_ASSERT( QObject::connect( actShowHelp, SIGNAL( triggered() ),
+            this,   SLOT( actShowHelpTriggered() ) ) );
+}
+
+void QSourceManager::connectAddressEdit()
+{
+    Q_ASSERT( QObject::connect( cmbAddressEdit, SIGNAL( activated(int) ),
+            this,   SLOT( cmbAddressEditActivated(int) ) ) );
+}
+
+void QSourceManager::connectSourceSelect()
+{
+    Q_ASSERT( QObject::connect( cmbSourceSelect, SIGNAL( activated(int) ),
+            this,   SLOT( cmbSourceSelectActivated(int) ) ) );
+}
+
+void QSourceManager::connectShowConf()
+{
+    Q_ASSERT( QObject::connect( actShowConf, SIGNAL( triggered() ),
+            this,   SLOT( actShowConfTriggered() ) ) );
+}
+
+void QSourceManager::connectRunAction()
+{
+    Q_ASSERT( QObject::connect( actRun, SIGNAL( triggered() ),
+            this,   SLOT( actRunTriggered() ) ) );
 }

@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/buttons">
+    <qresource prefix="/buttons/22">
         <file alias="AppExit">res/application-exit.png</file>
         <file alias="AppConf">res/configure.png</file>
         <file alias="BtnOk">res/dialog-ok.png</file>
@@ -37,5 +37,26 @@
         <file>res/tool_pause.png</file>
         <file>res/tool_resume.png</file>
         <file>res/user-trash-full.png</file>
+        <file>res/cache.png</file>
+        <file>res/connect_creating.png</file>
+        <file>res/connect_established.png</file>
+        <file>res/connect_no.png</file>
+        <file>res/return.png</file>
+    </qresource>
+    <qresource prefix="/buttons/16">
+        <file>res/16/application-exit.png</file>
+        <file>res/16/arrow-down-double.png</file>
+        <file>res/16/arrow-left-double.png</file>
+        <file>res/16/configure.png</file>
+        <file>res/16/connect_creating.png</file>
+        <file>res/16/connect_established.png</file>
+        <file>res/16/connect_no.png</file>
+        <file>res/16/dialog-error.png</file>
+        <file>res/16/dialog-information.png</file>
+        <file>res/16/help.png</file>
+        <file>res/16/misc.png</file>
+    </qresource>
+    <qresource prefix="/buttons/32">
+        <file>res/go-jump-locationbar.png</file>
     </qresource>
 </RCC>

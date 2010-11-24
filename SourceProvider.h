@@ -15,13 +15,34 @@
 #ifndef SOURCEPROVIDER_H_
 #define SOURCEPROVIDER_H_
 
+#include <QString>
 /*
  *
  */
 class SourceProvider
 {
+protected:
+    const char*        m_Name;
+    QString            m_DisplayName;
+    bool               m_onConfigAllowed;
+    bool               m_onHelpAllowed;
+    bool               m_FreeAddrEditAllowed;
+    virtual void       m_onConfig() = 0;
+    virtual void       m_onHelp() = 0;
 public:
-	SourceProvider();
+    const char*    getName()           { return m_Name; }
+    const QString& getDisplayName()    { return m_DisplayName; }
+    bool isOnConfigAllowed()           { return m_onConfigAllowed;  }
+    bool isOnHelpAllowed()             { return m_onHelpAllowed;  }
+    bool isFreeAddrEditAllowed()       { return m_FreeAddrEditAllowed;  }
+
+    void onConfig() {if (m_onConfigAllowed ) m_onConfig(); }
+    void onHelp()   {if (m_onHelpAllowed) m_onHelp(); }
+    SourceProvider():
+        m_Name(NULL),
+        m_DisplayName(QString::null),
+        m_onConfigAllowed(false),
+        m_onHelpAllowed(false){};
 	virtual ~SourceProvider();
 };
 

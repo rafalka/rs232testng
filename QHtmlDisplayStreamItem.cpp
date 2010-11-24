@@ -1,9 +1,9 @@
 /******************************************************************************
- * @file     SourceProvider.cpp
+ * @file     QHtmlDisplayStreamItem.cpp
  * 
  * @brief    
  * 
- * @date     12-11-2010
+ * @date     24-11-2010
  * @author   Rafal Kukla
  ******************************************************************************
  *            Copyright (C) 2010 Rafal Kukla  ( rkdevel@gmail.com )
@@ -12,11 +12,16 @@
  ******************************************************************************
  */
 
-#include "SourceProvider.h"
+#include "QHtmlDisplayStreamItem.h"
 
 
-
-SourceProvider::~SourceProvider()
+void  QHtmlDisplayStreamItem::In(DataChunk* data)
 {
-	// TODO Auto-generated destructor stub
+    if (dest)
+    {
+        dest->moveCursor(QTextCursor::End);
+        dest->insertHtml(data->toString());
+    }
+    if (data) delete data;
+
 }
