@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'QSourceManager.h'
 **
-** Created: Wed 24. Nov 19:16:28 2010
+** Created: Wed 1. Dec 22:41:14 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,27 +23,32 @@ static const uint qt_meta_data_QSourceManager[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      28,   16,   15,   15, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      16,   15,   15,   15, 0x0a,
-      39,   15,   15,   15, 0x0a,
-      62,   15,   15,   15, 0x0a,
-      86,   80,   15,   15, 0x0a,
-     116,   80,   15,   15, 0x0a,
+      61,   15,   15,   15, 0x0a,
+      84,   15,   15,   15, 0x0a,
+     107,   15,   15,   15, 0x0a,
+     131,  125,   15,   15, 0x0a,
+     161,  125,   15,   15, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_QSourceManager[] = {
-    "QSourceManager\0\0actShowHelpTriggered()\0"
-    "actShowConfTriggered()\0actRunTriggered()\0"
-    "index\0cmbSourceSelectActivated(int)\0"
+    "QSourceManager\0\0newProvider\0"
+    "providerChanged(SourceProvider*)\0"
+    "actShowHelpTriggered()\0actShowConfTriggered()\0"
+    "actRunTriggered()\0index\0"
+    "cmbSourceSelectActivated(int)\0"
     "cmbAddressEditActivated(int)\0"
 };
 
@@ -76,15 +81,23 @@ int QSourceManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: actShowHelpTriggered(); break;
-        case 1: actShowConfTriggered(); break;
-        case 2: actRunTriggered(); break;
-        case 3: cmbSourceSelectActivated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: cmbAddressEditActivated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 0: providerChanged((*reinterpret_cast< SourceProvider*(*)>(_a[1]))); break;
+        case 1: actShowHelpTriggered(); break;
+        case 2: actShowConfTriggered(); break;
+        case 3: actRunTriggered(); break;
+        case 4: cmbSourceSelectActivated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 5: cmbAddressEditActivated((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
+}
+
+// SIGNAL 0
+void QSourceManager::providerChanged(SourceProvider * _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

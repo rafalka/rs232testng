@@ -20,6 +20,8 @@
 #include <QIcon>
 #include <QString>
 #include <QVariant>
+#include <QAbstractItemModel>
+#include <QStandardItemModel>
 
 #include "SourceProvider.h"
 #include "SerialSourceProvider.h"
@@ -41,13 +43,22 @@ class SourceProviderFactory
 {
 private:
     static SourceProviderFactory s;
+
+    QStandardItemModel*          itemsInfoList;
+
+    QStandardItem* genItemInfo(const QString& Title, const char* IconResPath, int ID);
+    void           genItemsInfoList();
+
 public:
     /*
     int  EnumProviders(QObject& obj, SourceProviderEnumCallback cb, QVariant* cbParam  = NULL );
     */
     void EnumProviders(GuiItemCmd& callbackCmd);
+    QAbstractItemModel* getItemsModel() { if (!itemsInfoList) genItemsInfoList(); return itemsInfoList; }
 
     void ReleaseProvider(SourceProvider* provider) { if (provider) delete provider; }
+    SourceProvider* GetProviderFromIndex(int idx);
+
     static SourceProviderFactory& instance() { return SourceProviderFactory::s; }
 	SourceProviderFactory();
 	virtual ~SourceProviderFactory();

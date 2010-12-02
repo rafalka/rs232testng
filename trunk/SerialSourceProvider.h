@@ -18,6 +18,7 @@
 /*
  *
  */
+#include "StreamItem.h"
 #include "SourceProvider.h"
 
 class SerialSourceProvider: public SourceProvider
@@ -29,6 +30,7 @@ public:
     static const char*   myName        ;
     static const QString myDisplayName ;
 
+    StreamItem* getDefaultStream() { /* TODO SerialSourceProvider::getDefaultStream() */ return NULL; }
     SerialSourceProvider();
     virtual ~SerialSourceProvider();
 };

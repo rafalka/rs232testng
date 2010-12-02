@@ -1,4 +1,6 @@
 INPUT(
+./debug\QConfigStorage.o
+./debug\DataProvider.o
 ./debug\debug.o
 ./debug\QHtmlDisplayStreamItem.o
 ./debug\QTextEditStreamItem.o
@@ -16,6 +18,7 @@ INPUT(
 ./debug\QDynSelDock.o
 ./debug\main.o
 ./debug\rs232testng.o
+./debug\moc_main.o
 ./debug\moc_QTextEditStreamItem.o
 ./debug\moc_QSourceManager.o
 ./debug\moc_InputProviderFactory.o

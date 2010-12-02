@@ -3,18 +3,34 @@
 #include <QtGui>
 #include <QApplication>
 
+#include "DataProvider.h"
 #include "QSourceManager.h"
 #include "InputProviderFactory.h"
+#include "QConfigStorage.h"
 
-#include "QHtmlDisplayStreamItem.h"
-#include "QTextEditStreamItem.h"
+#include "main.h"
 
 const char* modulename;
+
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     modulename = a.applicationName().toAscii().constData();
+
+    int        valInt=123456;
+    QString    valString="Ala ma kota na punkcie psa";
+
+    CONF_START_GROUP( debug );
+    CONF_STORE_VAL( valInt );
+    CONF_STORE_VAL( valString );
+
+    CONF_READ_VAL( valInt, -1 );
+    CONF_READ_VAL( valString, "No i dupa" );
+
+    CONF_END_GROUP( debug );
+
 
     rs232testng w;
     w.show();
@@ -27,13 +43,15 @@ int main(int argc, char *argv[])
     		w.getCmbSrcAddr(),
     		w.getActSrcConn() );
 
-    QTextEditStreamItem     Input(w.ui.editIn);
-    QHtmlDisplayStreamItem  Output(w.ui.editOut);
-    Input.Connect( &Output );
+
+    QStreamManager stramMgr(w.ui.editIn, w.ui.editOut);
+
 
     Q_ASSERT( QObject::connect( w.ui.actInSend, SIGNAL( triggered() ),
-            &Input,   SLOT( Triggered() ) ) );
+            &stramMgr,   SLOT( Triggered() ) ) );
 
+    Q_ASSERT( QObject::connect( &srcMgr, SIGNAL( providerChanged(SourceProvider*) ),
+            &stramMgr,   SLOT( onSourceProviderChanged(SourceProvider*) ) ) );
 
     return a.exec();
 }

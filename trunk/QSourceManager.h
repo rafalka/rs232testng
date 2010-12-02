@@ -35,6 +35,7 @@ private:
 	QComboBox*   cmbAddressEdit;
 	QAction*     actRun;
 
+	int          lastGoodSourceSelectIdx;
 	void         connectSourceSelect();
 	void         connectShowHelp();
 	void         connectShowConf();
@@ -54,6 +55,9 @@ public slots:
 	void         cmbSourceSelectActivated( int index );
     void         cmbAddressEditActivated( int index );
 
+signals:
+    void         providerChanged(SourceProvider* newProvider);
+
 public:
 	QSourceManager(
 					QComboBox*   cmbSourceSelect,
@@ -62,6 +66,9 @@ public:
 					QComboBox*   cmbAddressEdit,
 					QAction*     actRun
 					);
+
+	SourceProvider* getCurrentProvider() { return currentProvider; }
+
 	//virtual ~QSourceManager();
 };
 
