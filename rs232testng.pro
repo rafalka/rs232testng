@@ -2,7 +2,10 @@ TEMPLATE = app
 TARGET = rs232testng
 QT += core \
     gui
-HEADERS += QHtmlDisplayStreamItem.h \
+HEADERS += QConfigStorage.h \
+    main.h \
+    DataProvider.h \
+    QHtmlDisplayStreamItem.h \
     QTextEditStreamItem.h \
     debug.h \
     StreamItem.h \
@@ -20,7 +23,9 @@ HEADERS += QHtmlDisplayStreamItem.h \
     plugapi/vartype.h \
     QDynSelDock.h \
     rs232testng.h
-SOURCES += debug.cpp \
+SOURCES += QConfigStorage.cpp \
+    DataProvider.cpp \
+    debug.cpp \
     QHtmlDisplayStreamItem.cpp \
     QTextEditStreamItem.cpp \
     StreamItem.cpp \

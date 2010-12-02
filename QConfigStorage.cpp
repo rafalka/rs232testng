@@ -1,9 +1,9 @@
 /******************************************************************************
- * @file     SourceProvider.cpp
+ * @file     QConfigStorage.cpp
  * 
  * @brief    
  * 
- * @date     12-11-2010
+ * @date     02-12-2010
  * @author   Rafal Kukla
  ******************************************************************************
  *            Copyright (C) 2010 Rafal Kukla  ( rkdevel@gmail.com )
@@ -12,5 +12,8 @@
  ******************************************************************************
  */
 
-#include "SourceProvider.h"
+#include "QConfigStorage.h"
+
+// Instancing
+QConfigStorage QConfigStorage::s;
 

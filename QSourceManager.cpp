@@ -32,7 +32,8 @@ QSourceManager::QSourceManager(
 		actShowHelp(actShowHelp),
 		actShowConf(actShowConf),
 		cmbAddressEdit(cmbAddressEdit),
-		actRun(actRun)
+		actRun(actRun),
+		lastGoodSourceSelectIdx(0)
 {
 	// TODO Auto-generated constructor stub
 	connectSourceSelect();
@@ -41,8 +42,9 @@ QSourceManager::QSourceManager(
 	connectAddressEdit();
 	connectRunAction();
 
-	ComboItemAddCmd srcEnumerator(cmbSourceSelect);
-	SrcFac.EnumProviders( srcEnumerator );
+	//ComboItemAddCmd srcEnumerator(cmbSourceSelect);
+	//SrcFac.EnumProviders( srcEnumerator );
+	cmbSourceSelect->setModel( SrcFac.getItemsModel() );
 }
 
 void QSourceManager::setProvider(SourceProvider* newProvider)
@@ -51,11 +53,15 @@ void QSourceManager::setProvider(SourceProvider* newProvider)
 
     currentProvider = newProvider;
 
-    if (tmpProvider) SrcFac.ReleaseProvider(tmpProvider);
-
     actShowHelp->setEnabled( newProvider->isOnHelpAllowed() );
     actShowConf->setEnabled( newProvider->isOnConfigAllowed() );
     cmbAddressEdit->setEditable( newProvider->isFreeAddrEditAllowed() );
+
+    // Emit signal
+    emit providerChanged(newProvider);
+
+    if (tmpProvider) SrcFac.ReleaseProvider(tmpProvider);
+
 }
 
 void QSourceManager::actShowHelpTriggered()
@@ -72,6 +78,16 @@ void QSourceManager::actShowConfTriggered()
 
 void QSourceManager::cmbSourceSelectActivated(int index)
 {
+    SourceProvider* tmpProvider = SrcFac.GetProviderFromIndex(index);
+    if (tmpProvider)
+    {
+        setProvider(tmpProvider);
+        lastGoodSourceSelectIdx = index;
+    }
+    else
+    {
+        cmbSourceSelect->setCurrentIndex(lastGoodSourceSelectIdx);
+    }
 }
 
 void QSourceManager::cmbAddressEditActivated(int index)
