@@ -2,7 +2,10 @@ TEMPLATE = app
 TARGET = rs232testng
 QT += core \
     gui
-HEADERS += QConfigStorage.h \
+HEADERS += QOutputProviderManager.h \
+    HtmlDisplayOutputProvider.h \
+    QInputProviderManager.h \
+    QConfigStorage.h \
     main.h \
     DataProvider.h \
     QHtmlDisplayStreamItem.h \
@@ -23,7 +26,10 @@ HEADERS += QConfigStorage.h \
     plugapi/vartype.h \
     QDynSelDock.h \
     rs232testng.h
-SOURCES += QConfigStorage.cpp \
+SOURCES += QOutputProviderManager.cpp \
+    HtmlDisplayOutputProvider.cpp \
+    QInputProviderManager.cpp \
+    QConfigStorage.cpp \
     DataProvider.cpp \
     debug.cpp \
     QHtmlDisplayStreamItem.cpp \
@@ -42,5 +48,8 @@ SOURCES += QConfigStorage.cpp \
     QDynSelDock.cpp \
     main.cpp \
     rs232testng.cpp
-FORMS += rs232testng.ui
+FORMS += QOutputProviderManager.ui \
+    QInputProviderManager.ui \
+    rs232testng.ui \
+    HtmlDisplayOutputProvider.ui
 RESOURCES += resources.qrc

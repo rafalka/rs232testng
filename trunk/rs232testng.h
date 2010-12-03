@@ -22,6 +22,10 @@ public:
 	QComboBox*  getCmbSrcAddr() { return ui.editSrcAddress; }
 	QAction*    getActSrcConn() { return ui.actSrcConn; }
 
+	QWidget*     getOutputManagerArea() { return ui.OutputManagerArea; }
+    QWidget*     getOutputArea() { return ui.OutputArea; }
+
+
     rs232testng(QWidget *parent = 0);
     ~rs232testng();
 

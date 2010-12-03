@@ -37,16 +37,12 @@ rs232testng::rs232testng(QWidget *parent)
 	ui.btnSrcConf->setDefaultAction(ui.actSrcConf);
 	ui.btnSrcConn->setDefaultAction(ui.actSrcConn);
 
-	ui.btnInHelp->setDefaultAction(ui.actInHelp);
-	ui.btnInConf->setDefaultAction(ui.actInConf);
-	ui.btnInSend->setDefaultAction(ui.actInSend);
+	/*
 
 	ui.btnOutHelp->setDefaultAction(ui.actOutHelp);
 	ui.btnOutConf->setDefaultAction(ui.actOutConf);
 
-	ui.btnShowInHist->setDefaultAction(ui.actShowInHist);
-	ui.btnShowMacros->setDefaultAction(ui.actShowMacros);
-
+*/
 
 	ui.btnAppExit->setDefaultAction(ui.actAppExit);
 

@@ -1,4 +1,7 @@
 INPUT(
+./release\QOutputProviderManager.o
+./release\HtmlDisplayOutputProvider.o
+./release\QInputProviderManager.o
 ./release\QConfigStorage.o
 ./release\DataProvider.o
 ./release\debug.o
@@ -18,7 +21,10 @@ INPUT(
 ./release\QDynSelDock.o
 ./release\main.o
 ./release\rs232testng.o
+./release\moc_QOutputProviderManager.o
+./release\moc_QInputProviderManager.o
 ./release\moc_main.o
+./release\moc_DataProvider.o
 ./release\moc_QTextEditStreamItem.o
 ./release\moc_QSourceManager.o
 ./release\moc_InputProviderFactory.o

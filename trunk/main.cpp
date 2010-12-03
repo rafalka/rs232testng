@@ -7,6 +7,9 @@
 #include "DataProvider.h"
 #include "QSourceManager.h"
 #include "InputProviderFactory.h"
+#include "QOutputProviderManager.h"
+#include "HtmlDisplayOutputProvider.h"
+
 #include "QConfigStorage.h"
 #include "main.h"
 
@@ -37,6 +40,15 @@ int main(int argc, char *argv[])
 
 
     rs232testng w;
+
+    QOutputProviderManager      outmgr;
+    HtmlDisplayOutputProvider   htmlout;
+
+    outmgr.SetupUI(w.getOutputManagerArea() );
+    htmlout.SetupUI( w.getOutputArea() );
+
+
+
     w.show();
 
 
@@ -48,6 +60,7 @@ int main(int argc, char *argv[])
     		w.getActSrcConn() );
 
 
+/*
     QStreamManager stramMgr(w.ui.editIn, w.ui.editOut);
 
 
@@ -56,6 +69,6 @@ int main(int argc, char *argv[])
 
     Q_ASSERT( QObject::connect( &srcMgr, SIGNAL( providerChanged(SourceProvider*) ),
             &stramMgr,   SLOT( onSourceProviderChanged(SourceProvider*) ) ) );
-
+*/
     return a.exec();
 }

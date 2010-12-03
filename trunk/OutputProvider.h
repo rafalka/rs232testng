@@ -15,10 +15,11 @@
 #ifndef OUTPUTPROVIDER_H_
 #define OUTPUTPROVIDER_H_
 
+#include "DataProvider.h"
 /*
  *
  */
-class OutputProvider
+class OutputProvider: public DataProvider
 {
     bool         m_onConfigActive;
     bool         m_onHelpAllowed;

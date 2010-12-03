@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>760</width>
-    <height>406</height>
+    <width>727</width>
+    <height>499</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -164,7 +164,7 @@
       <property name="childrenCollapsible">
        <bool>false</bool>
       </property>
-      <widget class="QFrame" name="frame_2">
+      <widget class="QInputProviderManager" name="frameInMgr">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -184,118 +184,6 @@
         <property name="horizontalSpacing">
          <number>6</number>
         </property>
-        <item row="9" column="7">
-         <widget class="QToolButton" name="btnShowInHist">
-          <property name="text">
-           <string>...</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0" rowspan="3" colspan="7">
-         <widget class="QPlainTextEdit" name="editIn">
-          <property name="minimumSize">
-           <size>
-            <width>120</width>
-            <height>60</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="7">
-         <widget class="QToolButton" name="btnShowMacros">
-          <property name="text">
-           <string>...</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="4">
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="0">
-         <widget class="QComboBox" name="cmbInSel">
-          <property name="minimumSize">
-           <size>
-            <width>120</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="mouseTracking">
-           <bool>true</bool>
-          </property>
-          <property name="toolTip">
-           <string>TOOLTIP\</string>
-          </property>
-          <property name="statusTip">
-           <string>DUPA</string>
-          </property>
-          <property name="editable">
-           <bool>false</bool>
-          </property>
-          <property name="duplicatesEnabled">
-           <bool>true</bool>
-          </property>
-          <property name="modelColumn">
-           <number>0</number>
-          </property>
-          <item>
-           <property name="text">
-            <string extracomment="ALICJA">Ala</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string extracomment="Kocicja">Kot</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QToolButton" name="btnInHelp">
-          <property name="text">
-           <string>?</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QToolButton" name="btnInConf">
-          <property name="text">
-           <string>H</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="Line" name="line">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="6">
-         <widget class="QToolButton" name="btnInSend">
-          <property name="text">
-           <string>Send</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextBesideIcon</enum>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QFrame" name="frame_3">
@@ -305,72 +193,22 @@
        <property name="frameShadow">
         <enum>QFrame::Sunken</enum>
        </property>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <property name="margin">
-         <number>4</number>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>0</number>
         </property>
-        <item row="0" column="0">
-         <widget class="QComboBox" name="cmbOutSel">
-          <property name="minimumSize">
-           <size>
-            <width>120</width>
-            <height>0</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QToolButton" name="btnOutHelp">
-          <property name="text">
-           <string>?</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="0" colspan="5">
-         <widget class="QTextEdit" name="editOut">
-          <property name="readOnly">
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="OutputManagerArea" native="true">
+          <property name="autoFillBackground">
            <bool>false</bool>
           </property>
          </widget>
         </item>
-        <item row="0" column="2">
-         <widget class="QToolButton" name="btnOutConf">
-          <property name="text">
-           <string>H</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="Line" name="line_3">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>10</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
+        <item>
+         <widget class="QWidget" name="OutputArea" native="true"/>
         </item>
        </layout>
       </widget>
@@ -431,18 +269,6 @@
     <string>See info for selected input source</string>
    </property>
   </action>
-  <action name="actInHelp">
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/buttons/16/res/16/dialog-information.png</normaloff>:/buttons/16/res/16/dialog-information.png</iconset>
-   </property>
-   <property name="text">
-    <string>Input Method Help</string>
-   </property>
-   <property name="toolTip">
-    <string>See info for selected input method</string>
-   </property>
-  </action>
   <action name="actOutHelp">
    <property name="icon">
     <iconset resource="resources.qrc">
@@ -467,18 +293,6 @@
     <string>Additional source settings</string>
    </property>
   </action>
-  <action name="actInConf">
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/buttons/16/res/16/configure.png</normaloff>:/buttons/16/res/16/configure.png</iconset>
-   </property>
-   <property name="text">
-    <string>Input Config</string>
-   </property>
-   <property name="toolTip">
-    <string>Additional input method settings</string>
-   </property>
-  </action>
   <action name="actOutConf">
    <property name="icon">
     <iconset resource="resources.qrc">
@@ -491,40 +305,15 @@
     <string>Additional output method settings</string>
    </property>
   </action>
-  <action name="actShowInHist">
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/buttons/16/res/16/arrow-down-double.png</normaloff>:/buttons/16/res/16/arrow-down-double.png</iconset>
-   </property>
-   <property name="text">
-    <string>Show History</string>
-   </property>
-   <property name="toolTip">
-    <string>Show history </string>
-   </property>
-  </action>
-  <action name="actShowMacros">
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/buttons/16/res/16/arrow-left-double.png</normaloff>:/buttons/16/res/16/arrow-left-double.png</iconset>
-   </property>
-   <property name="text">
-    <string>Show Predefined Macros</string>
-   </property>
-  </action>
-  <action name="actInSend">
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/buttons/22/res/return.png</normaloff>:/buttons/22/res/return.png</iconset>
-   </property>
-   <property name="text">
-    <string>Send</string>
-   </property>
-   <property name="toolTip">
-    <string>Send data</string>
-   </property>
-  </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QInputProviderManager</class>
+   <extends>QFrame</extends>
+   <header>QInputProviderManager.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resources.qrc"/>
  </resources>

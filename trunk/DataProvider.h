@@ -15,12 +15,15 @@
 #ifndef DATAPROVIDER_H_
 #define DATAPROVIDER_H_
 
+#include <QObject>
+#include <QWidget>
 #include "StreamItem.h"
 /*
  *
  */
-class DataProvider
+class DataProvider: public QObject
 {
+    Q_OBJECT
 protected:
     const char*        m_Name;
     QString            m_DisplayName;
@@ -40,11 +43,17 @@ public:
     void onHelp()   {if (m_onHelpAllowed) m_onHelp(); }
 
     virtual StreamItem* getDefaultStream() = 0;
+
+    virtual void        SetupUI(QWidget *parent) {};
+
     DataProvider():
         m_Name(NULL),
         m_DisplayName(QString::null),
         m_onConfigAllowed(false),
         m_onHelpAllowed(false){};
+
+signals:
+        void streamChanged(StreamItem* newStream);
 
 public:
     virtual ~DataProvider()
