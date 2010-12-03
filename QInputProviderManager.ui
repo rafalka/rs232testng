@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QInputProviderManager</class>
+ <widget class="QFrame" name="QInputProviderManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>626</width>
+    <height>114</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::Box</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Sunken</enum>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>4</number>
+   </property>
+   <property name="horizontalSpacing">
+    <number>6</number>
+   </property>
+   <item row="9" column="5">
+    <widget class="QToolButton" name="btnShowInHist">
+     <property name="text">
+      <string>History</string>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonTextBesideIcon</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" rowspan="4" colspan="5">
+    <widget class="QPlainTextEdit" name="editIn">
+     <property name="minimumSize">
+      <size>
+       <width>120</width>
+       <height>48</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QComboBox" name="cmbInSel">
+     <property name="minimumSize">
+      <size>
+       <width>120</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="toolTip">
+      <string>TOOLTIP\</string>
+     </property>
+     <property name="statusTip">
+      <string>DUPA</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="duplicatesEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="modelColumn">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string extracomment="ALICJA">Ala</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string extracomment="Kocicja">Kot</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="8" column="5">
+    <widget class="QToolButton" name="btnShowMacros">
+     <property name="text">
+      <string>Macros</string>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonTextBesideIcon</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="5">
+    <widget class="QToolButton" name="btnInSend">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Send</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonTextBesideIcon</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2" colspan="4">
+    <widget class="QFrame" name="outCtrlFrame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <action name="actInHelp">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/buttons/16/res/16/dialog-information.png</normaloff>:/buttons/16/res/16/dialog-information.png</iconset>
+   </property>
+   <property name="text">
+    <string>Input Method Help</string>
+   </property>
+   <property name="toolTip">
+    <string>See info for selected input method</string>
+   </property>
+  </action>
+  <action name="actInConf">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/buttons/16/res/16/configure.png</normaloff>:/buttons/16/res/16/configure.png</iconset>
+   </property>
+   <property name="text">
+    <string>Input Config</string>
+   </property>
+   <property name="toolTip">
+    <string>Additional input method settings</string>
+   </property>
+  </action>
+  <action name="actInSend">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/buttons/22/res/return.png</normaloff>:/buttons/22/res/return.png</iconset>
+   </property>
+   <property name="text">
+    <string>Send</string>
+   </property>
+   <property name="toolTip">
+    <string>Send data</string>
+   </property>
+  </action>
+  <action name="actShowInHist">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/buttons/16/res/16/arrow-down-double.png</normaloff>:/buttons/16/res/16/arrow-down-double.png</iconset>
+   </property>
+   <property name="text">
+    <string>History</string>
+   </property>
+   <property name="toolTip">
+    <string>Show history </string>
+   </property>
+  </action>
+  <action name="actShowMacros">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/buttons/16/res/16/arrow-left-double.png</normaloff>:/buttons/16/res/16/arrow-left-double.png</iconset>
+   </property>
+   <property name="text">
+    <string>Macros</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

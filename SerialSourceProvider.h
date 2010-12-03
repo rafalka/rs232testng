@@ -24,8 +24,8 @@
 class SerialSourceProvider: public SourceProvider
 {
 protected:
-    void       m_onConfig();
-    void       m_onHelp();
+    void       m_onConfig() ;
+    void       m_onHelp() ;
 public:
     static const char*   myName        ;
     static const QString myDisplayName ;

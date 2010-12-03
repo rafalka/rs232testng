@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'QSourceManager.h'
 **
-** Created: Wed 1. Dec 22:41:14 2010
+** Created: Fri 3. Dec 23:35:30 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
