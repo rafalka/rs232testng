@@ -2,12 +2,12 @@
 
 #include <QtGui>
 #include <QApplication>
+#include <QStringList>
 
 #include "DataProvider.h"
 #include "QSourceManager.h"
 #include "InputProviderFactory.h"
 #include "QConfigStorage.h"
-
 #include "main.h"
 
 const char* modulename;
@@ -21,10 +21,14 @@ int main(int argc, char *argv[])
 
     int        valInt=123456;
     QString    valString="Ala ma kota na punkcie psa";
+    QStringList valStrList;
+
+    valStrList << "Ala" << "Ma" << "Kota" << "Na" << "Punkcie" << "Psa";
 
     CONF_START_GROUP( debug );
     CONF_STORE_VAL( valInt );
     CONF_STORE_VAL( valString );
+    CONF_STORE_VAL( valStrList );
 
     CONF_READ_VAL( valInt, -1 );
     CONF_READ_VAL( valString, "No i dupa" );
