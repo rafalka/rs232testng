@@ -11,6 +11,10 @@ class rs232testng : public QMainWindow
 {
     Q_OBJECT
 
+protected:
+    void closeEvent(QCloseEvent *event);
+    void loadSettings();
+    void saveSettings();
 public:
     QComboBox*  getCmbSrcSel()  { return ui.cmbSrcSel; }
 	QAction*    getActSrcHelp() { return ui.actSrcHelp; }

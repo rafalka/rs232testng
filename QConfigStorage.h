@@ -22,6 +22,8 @@
 #include <QSettings>
 #include <QMutex>
 #include <QMutexLocker>
+#include <QByteArray>
+#include <QStringList>
 /*
  *
  */
@@ -54,10 +56,22 @@ public:
     static void BeginGroup(const char* name) { s.storage.beginGroup( name ); }
     static void EndGroup() { s.storage.endGroup(); }
 
-    static void setVal(const char* key, const QVariant& value) { s.storage.setValue(key,value); }
-    static void getVal(const char* key, QVariant & value, const QVariant& defval) { value = s.storage.value(key,defval); }
-    static void getVal(const char* key, int* value, int defval) { if (value) *value = s.storage.value(key,defval).toInt(); }
-    static void getVal(const char* key, QString* value, const QString& defval) { if (value) *value = s.storage.value(key,defval).toString(); }
+    static void        setVal(const char* key, const QVariant& value) { s.storage.setValue(key,value); }
+    static void        getVal(const char* key, QVariant & value, const QVariant& defval) { value = s.storage.value(key,defval); }
+
+    static void        getVal(const char* key, int* value, int defval) { if (value) *value = s.storage.value(key,defval).toInt(); }
+    static int         getVal(const char* key, int defval) { return s.storage.value(key,defval).toInt(); }
+
+    static void        getVal(const char* key, QString* value, const QString& defval) { if (value) *value = s.storage.value(key,defval).toString(); }
+    static QString     getVal(const char* key, const QString& defval) { return s.storage.value(key,defval).toString(); }
+
+    static void        getVal(const char* key, QByteArray* value, const QByteArray& defval) { if (value) *value = s.storage.value(key,defval).toByteArray(); }
+    static QByteArray  getVal(const char* key, const QByteArray& defval) { return s.storage.value(key,defval).toByteArray(); }
+
+    static void        getVal(const char* key, QStringList* value, const QStringList& defval) { if (value) *value = s.storage.value(key,defval).toStringList(); }
+    static QStringList getVal(const char* key, const QStringList& defval) { return s.storage.value(key,defval).toStringList(); }
+
+    static void Save() { s.storage.sync(); }
 
     QConfigStorage():
         storage(ORGANIZATION_NAME,APPLICATION_NAME),

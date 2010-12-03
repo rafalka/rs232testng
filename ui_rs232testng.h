@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'rs232testng.ui'
 **
-** Created: Wed 17. Nov 21:22:25 2010
+** Created: Fri 3. Dec 13:05:25 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -87,7 +87,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(794, 716);
+        MainWindow->resize(760, 406);
         MainWindow->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         MainWindow->setDockOptions(QMainWindow::AnimatedDocks);
         actSrcConn = new QAction(MainWindow);
