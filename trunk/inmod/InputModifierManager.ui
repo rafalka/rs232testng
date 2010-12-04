@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InputModifierManagerUI</class>
+ <widget class="QWidget" name="InputModifierManagerUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>626</width>
+    <height>40</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>4</number>
+   </property>
+   <property name="margin">
+    <number>4</number>
+   </property>
+   <item>
+    <widget class="QComboBox" name="cmbInSel">
+     <property name="minimumSize">
+      <size>
+       <width>120</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="sizeIncrement">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="toolTip">
+      <string>TOOLTIP\</string>
+     </property>
+     <property name="statusTip">
+      <string>DUPA</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="duplicatesEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="modelColumn">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string extracomment="ALICJA">Ala</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string extracomment="Kocicja">Kot</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="outCtrlFrame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <action name="actInHelp">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/buttons/16/res/16/dialog-information.png</normaloff>:/buttons/16/res/16/dialog-information.png</iconset>
+   </property>
+   <property name="text">
+    <string>Input Method Help</string>
+   </property>
+   <property name="toolTip">
+    <string>See info for selected input method</string>
+   </property>
+  </action>
+  <action name="actInConf">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/buttons/16/res/16/configure.png</normaloff>:/buttons/16/res/16/configure.png</iconset>
+   </property>
+   <property name="text">
+    <string>Input Config</string>
+   </property>
+   <property name="toolTip">
+    <string>Additional input method settings</string>
+   </property>
+  </action>
+  <action name="actInSend">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/buttons/22/res/return.png</normaloff>:/buttons/22/res/return.png</iconset>
+   </property>
+   <property name="text">
+    <string>Send</string>
+   </property>
+   <property name="toolTip">
+    <string>Send data</string>
+   </property>
+  </action>
+  <action name="actShowInHist">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/buttons/16/res/16/arrow-down-double.png</normaloff>:/buttons/16/res/16/arrow-down-double.png</iconset>
+   </property>
+   <property name="text">
+    <string>History</string>
+   </property>
+   <property name="toolTip">
+    <string>Show history </string>
+   </property>
+  </action>
+  <action name="actShowMacros">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/buttons/16/res/16/arrow-left-double.png</normaloff>:/buttons/16/res/16/arrow-left-double.png</iconset>
+   </property>
+   <property name="text">
+    <string>Macros</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

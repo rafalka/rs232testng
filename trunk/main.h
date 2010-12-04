@@ -15,9 +15,8 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
-#include "QHtmlDisplayStreamItem.h"
-#include "QTextEditStreamItem.h"
-#include "SourceProvider.h"
+#include "HtmlDisplayStreamItem.h"
+#include "TextEditStreamItem.h"
 
 #include <QObject>
 
@@ -25,38 +24,54 @@ class QStreamManager: public QObject
 {
     Q_OBJECT
 private:
-    QTextEditStreamItem     InStream;
+    StreamItem*             InStream;
     StreamItem*             InModStream;
     StreamItem*             SourceStream;
     StreamItem*             OutModStream;
-    QHtmlDisplayStreamItem  OutStream;
+    StreamItem*             OutStream;
 private:
     void buildStream()
     {
-        StreamItem* endStream = &OutStream;
+        StreamItem* endStream = OutStream;
         if (OutModStream) { OutModStream->Connect(endStream); endStream = OutModStream; }
         if (SourceStream) { SourceStream->Connect(endStream); endStream = SourceStream; }
         if (InModStream)  { InModStream->Connect(endStream);  endStream = InModStream; }
-
-        InStream.Connect( endStream );
+        if (InStream)     { InStream->Connect( endStream ); }
     }
 public:
-    QStreamManager(QPlainTextEdit* in, QTextEdit* out):
-        InStream(in),InModStream(NULL),
-        SourceStream(NULL),OutModStream(NULL),
-        OutStream(out)
+    QStreamManager():
+        InStream(0),InModStream(0),
+        SourceStream(0),OutModStream(0),
+        OutStream(0)
     {
         buildStream();
     }
 
 public slots:
-    void Triggered() { InStream.Triggered(); }
-    void onSourceProviderChanged(SourceProvider* newProvider)
+    void onInStreamChanged(StreamItem* newStream)
     {
-        if (newProvider) {
-            SourceStream = newProvider->getDefaultStream();
-            buildStream();
-        }
+        InStream = newStream;
+        buildStream();
+    }
+    void onInModStreamChanged(StreamItem* newStream)
+    {
+        InModStream = newStream;
+        buildStream();
+    }
+    void onSourceStreamChanged(StreamItem* newStream)
+    {
+        SourceStream = newStream;
+        buildStream();
+    }
+    void onOutModStreamChanged(StreamItem* newStream)
+    {
+        OutModStream = newStream;
+        buildStream();
+    }
+    void onOutStreamChanged(StreamItem* newStream)
+    {
+        OutStream = newStream;
+        buildStream();
     }
 
 };

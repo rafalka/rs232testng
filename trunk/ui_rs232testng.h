@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'rs232testng.ui'
 **
-** Created: Fri 3. Dec 23:52:43 2010
+** Created: Sat 4. Dec 23:43:08 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,19 +15,13 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QComboBox>
 #include <QtGui/QFrame>
-#include <QtGui/QGridLayout>
-#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QMainWindow>
-#include <QtGui/QSpacerItem>
 #include <QtGui/QSplitter>
 #include <QtGui/QStatusBar>
-#include <QtGui/QToolButton>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
-#include "QInputProviderManager.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -44,21 +38,13 @@ public:
     QAction *actOutConf;
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout;
-    QFrame *frame;
-    QHBoxLayout *horizontalLayout;
-    QComboBox *cmbSrcSel;
-    QToolButton *btnSrcHelp;
-    QToolButton *btnSrcConf;
-    QFrame *line_2;
-    QComboBox *editSrcAddress;
-    QToolButton *btnSrcConn;
-    QSpacerItem *horizontalSpacer;
-    QFrame *line_4;
-    QToolButton *btnAppExit;
+    QFrame *SourceManagerArea;
     QSplitter *splitter;
-    QInputProviderManager *frameInMgr;
-    QGridLayout *gridLayout;
-    QFrame *frame_3;
+    QFrame *inputGroupFrame;
+    QVBoxLayout *verticalLayout_3;
+    QWidget *InputManagerArea;
+    QWidget *InputArea;
+    QFrame *outputGroupFrame;
     QVBoxLayout *verticalLayout_2;
     QWidget *OutputManagerArea;
     QWidget *OutputArea;
@@ -115,123 +101,74 @@ public:
         verticalLayout->setSpacing(4);
         verticalLayout->setContentsMargins(4, 4, 4, 4);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        frame = new QFrame(centralWidget);
-        frame->setObjectName(QString::fromUtf8("frame"));
+        SourceManagerArea = new QFrame(centralWidget);
+        SourceManagerArea->setObjectName(QString::fromUtf8("SourceManagerArea"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
-        frame->setSizePolicy(sizePolicy);
-        frame->setMinimumSize(QSize(0, 32));
-        frame->setFrameShape(QFrame::Box);
-        frame->setFrameShadow(QFrame::Sunken);
-        frame->setLineWidth(1);
-        frame->setMidLineWidth(0);
-        horizontalLayout = new QHBoxLayout(frame);
-        horizontalLayout->setContentsMargins(4, 4, 4, 4);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        cmbSrcSel = new QComboBox(frame);
-        cmbSrcSel->setObjectName(QString::fromUtf8("cmbSrcSel"));
-        cmbSrcSel->setMinimumSize(QSize(120, 0));
+        sizePolicy.setHeightForWidth(SourceManagerArea->sizePolicy().hasHeightForWidth());
+        SourceManagerArea->setSizePolicy(sizePolicy);
+        SourceManagerArea->setMinimumSize(QSize(0, 32));
+        SourceManagerArea->setFrameShape(QFrame::Box);
+        SourceManagerArea->setFrameShadow(QFrame::Sunken);
+        SourceManagerArea->setLineWidth(1);
+        SourceManagerArea->setMidLineWidth(0);
 
-        horizontalLayout->addWidget(cmbSrcSel);
-
-        btnSrcHelp = new QToolButton(frame);
-        btnSrcHelp->setObjectName(QString::fromUtf8("btnSrcHelp"));
-
-        horizontalLayout->addWidget(btnSrcHelp);
-
-        btnSrcConf = new QToolButton(frame);
-        btnSrcConf->setObjectName(QString::fromUtf8("btnSrcConf"));
-
-        horizontalLayout->addWidget(btnSrcConf);
-
-        line_2 = new QFrame(frame);
-        line_2->setObjectName(QString::fromUtf8("line_2"));
-        line_2->setFrameShape(QFrame::VLine);
-        line_2->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout->addWidget(line_2);
-
-        editSrcAddress = new QComboBox(frame);
-        editSrcAddress->setObjectName(QString::fromUtf8("editSrcAddress"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(editSrcAddress->sizePolicy().hasHeightForWidth());
-        editSrcAddress->setSizePolicy(sizePolicy1);
-        editSrcAddress->setEditable(true);
-
-        horizontalLayout->addWidget(editSrcAddress);
-
-        btnSrcConn = new QToolButton(frame);
-        btnSrcConn->setObjectName(QString::fromUtf8("btnSrcConn"));
-        btnSrcConn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-
-        horizontalLayout->addWidget(btnSrcConn);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        line_4 = new QFrame(frame);
-        line_4->setObjectName(QString::fromUtf8("line_4"));
-        line_4->setFrameShape(QFrame::VLine);
-        line_4->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout->addWidget(line_4);
-
-        btnAppExit = new QToolButton(frame);
-        btnAppExit->setObjectName(QString::fromUtf8("btnAppExit"));
-
-        horizontalLayout->addWidget(btnAppExit);
-
-
-        verticalLayout->addWidget(frame);
+        verticalLayout->addWidget(SourceManagerArea);
 
         splitter = new QSplitter(centralWidget);
         splitter->setObjectName(QString::fromUtf8("splitter"));
-        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(splitter->sizePolicy().hasHeightForWidth());
-        splitter->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(splitter->sizePolicy().hasHeightForWidth());
+        splitter->setSizePolicy(sizePolicy1);
         splitter->setFrameShape(QFrame::NoFrame);
         splitter->setOrientation(Qt::Vertical);
         splitter->setOpaqueResize(true);
         splitter->setHandleWidth(5);
         splitter->setChildrenCollapsible(false);
-        frameInMgr = new QInputProviderManager(splitter);
-        frameInMgr->setObjectName(QString::fromUtf8("frameInMgr"));
-        sizePolicy2.setHeightForWidth(frameInMgr->sizePolicy().hasHeightForWidth());
-        frameInMgr->setSizePolicy(sizePolicy2);
-        frameInMgr->setFrameShape(QFrame::Box);
-        frameInMgr->setFrameShadow(QFrame::Sunken);
-        gridLayout = new QGridLayout(frameInMgr);
-        gridLayout->setContentsMargins(4, 4, 4, 4);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setHorizontalSpacing(6);
-        splitter->addWidget(frameInMgr);
-        frame_3 = new QFrame(splitter);
-        frame_3->setObjectName(QString::fromUtf8("frame_3"));
-        frame_3->setFrameShape(QFrame::Box);
-        frame_3->setFrameShadow(QFrame::Sunken);
-        verticalLayout_2 = new QVBoxLayout(frame_3);
+        inputGroupFrame = new QFrame(splitter);
+        inputGroupFrame->setObjectName(QString::fromUtf8("inputGroupFrame"));
+        sizePolicy1.setHeightForWidth(inputGroupFrame->sizePolicy().hasHeightForWidth());
+        inputGroupFrame->setSizePolicy(sizePolicy1);
+        inputGroupFrame->setFrameShape(QFrame::Box);
+        inputGroupFrame->setFrameShadow(QFrame::Sunken);
+        verticalLayout_3 = new QVBoxLayout(inputGroupFrame);
+        verticalLayout_3->setSpacing(0);
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        InputManagerArea = new QWidget(inputGroupFrame);
+        InputManagerArea->setObjectName(QString::fromUtf8("InputManagerArea"));
+
+        verticalLayout_3->addWidget(InputManagerArea);
+
+        InputArea = new QWidget(inputGroupFrame);
+        InputArea->setObjectName(QString::fromUtf8("InputArea"));
+
+        verticalLayout_3->addWidget(InputArea);
+
+        splitter->addWidget(inputGroupFrame);
+        outputGroupFrame = new QFrame(splitter);
+        outputGroupFrame->setObjectName(QString::fromUtf8("outputGroupFrame"));
+        outputGroupFrame->setFrameShape(QFrame::Box);
+        outputGroupFrame->setFrameShadow(QFrame::Sunken);
+        verticalLayout_2 = new QVBoxLayout(outputGroupFrame);
         verticalLayout_2->setSpacing(0);
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        OutputManagerArea = new QWidget(frame_3);
+        OutputManagerArea = new QWidget(outputGroupFrame);
         OutputManagerArea->setObjectName(QString::fromUtf8("OutputManagerArea"));
         OutputManagerArea->setAutoFillBackground(false);
 
         verticalLayout_2->addWidget(OutputManagerArea);
 
-        OutputArea = new QWidget(frame_3);
+        OutputArea = new QWidget(outputGroupFrame);
         OutputArea->setObjectName(QString::fromUtf8("OutputArea"));
 
         verticalLayout_2->addWidget(OutputArea);
 
-        splitter->addWidget(frame_3);
+        splitter->addWidget(outputGroupFrame);
 
         verticalLayout->addWidget(splitter);
 
@@ -269,10 +206,6 @@ public:
 #ifndef QT_NO_TOOLTIP
         actOutConf->setToolTip(QApplication::translate("MainWindow", "Additional output method settings", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        btnSrcHelp->setText(QApplication::translate("MainWindow", "?", 0, QApplication::UnicodeUTF8));
-        btnSrcConf->setText(QApplication::translate("MainWindow", "H", 0, QApplication::UnicodeUTF8));
-        btnSrcConn->setText(QApplication::translate("MainWindow", "Connect", 0, QApplication::UnicodeUTF8));
-        btnAppExit->setText(QApplication::translate("MainWindow", "...", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

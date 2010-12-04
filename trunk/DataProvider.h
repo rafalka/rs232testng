@@ -17,7 +17,8 @@
 
 #include <QObject>
 #include <QWidget>
-#include "StreamItem.h"
+
+class StreamItem;
 /*
  *
  */
@@ -30,8 +31,6 @@ protected:
     bool               m_onConfigAllowed;
     bool               m_onHelpAllowed;
     bool               m_FreeAddrEditAllowed;
-    virtual void       m_onConfig() = 0;
-    virtual void       m_onHelp() = 0;
 public:
     const char*    getName()           { return m_Name; }
     const QString& getDisplayName()    { return m_DisplayName; }
@@ -39,8 +38,6 @@ public:
     bool isOnHelpAllowed()             { return m_onHelpAllowed;  }
     bool isFreeAddrEditAllowed()       { return m_FreeAddrEditAllowed;  }
 
-    void onConfig() {if (m_onConfigAllowed ) m_onConfig(); }
-    void onHelp()   {if (m_onHelpAllowed) m_onHelp(); }
 
     virtual StreamItem* getDefaultStream() = 0;
 

@@ -16,14 +16,13 @@ protected:
     void loadSettings();
     void saveSettings();
 public:
-    QComboBox*  getCmbSrcSel()  { return ui.cmbSrcSel; }
-	QAction*    getActSrcHelp() { return ui.actSrcHelp; }
-	QAction*    getActSrcConf() { return ui.actSrcConf; }
-	QComboBox*  getCmbSrcAddr() { return ui.editSrcAddress; }
-	QAction*    getActSrcConn() { return ui.actSrcConn; }
 
-	QWidget*     getOutputManagerArea() { return ui.OutputManagerArea; }
-    QWidget*     getOutputArea() { return ui.OutputArea; }
+    QWidget*     getSourceManagerArea() { return ui.SourceManagerArea; }
+    QWidget*     getInputManagerArea()  { return ui.InputManagerArea; }
+    QWidget*     getInputArea()         { return ui.InputArea; }
+
+    QWidget*     getOutputManagerArea() { return ui.OutputManagerArea; }
+    QWidget*     getOutputArea()        { return ui.OutputArea; }
 
 
     rs232testng(QWidget *parent = 0);
