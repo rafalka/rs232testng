@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'OutputModifierManager.ui'
 **
-** Created: Sat 4. Dec 16:41:50 2010
+** Created: Sat 4. Dec 23:43:08 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

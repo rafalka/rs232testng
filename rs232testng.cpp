@@ -32,19 +32,18 @@ rs232testng::rs232testng(QWidget *parent)
 	selCombo = new QComboBox(ui.srcSelDock);
 	selCombo->addItems(QStringList() << "Ala" << "Ma" << "Kota" );
 	ui.srcSelDock->setWidget(selCombo);
-	*/
+
 	ui.btnSrcHelp->setDefaultAction(ui.actSrcHelp);
 	ui.btnSrcConf->setDefaultAction(ui.actSrcConf);
 	ui.btnSrcConn->setDefaultAction(ui.actSrcConn);
 
-	/*
 
 	ui.btnOutHelp->setDefaultAction(ui.actOutHelp);
 	ui.btnOutConf->setDefaultAction(ui.actOutConf);
 
-*/
 
 	ui.btnAppExit->setDefaultAction(ui.actAppExit);
+	*/
 
 }
 

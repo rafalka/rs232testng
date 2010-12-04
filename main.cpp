@@ -5,9 +5,11 @@
 #include <QStringList>
 
 #include "DataProvider.h"
-#include "QSourceManager.h"
+#include "SourceProviderManager.h"
+#include "TextEnterInputProvider.h"
+#include "InputModifierManager.h"
 #include "InputProviderFactory.h"
-#include "QOutputProviderManager.h"
+#include "OutputModifierManager.h"
 #include "HtmlDisplayOutputProvider.h"
 
 #include "QConfigStorage.h"
@@ -41,31 +43,46 @@ int main(int argc, char *argv[])
 
     rs232testng w;
 
-    QOutputProviderManager      outmgr;
-    HtmlDisplayOutputProvider   htmlout;
+    HtmlDisplayOutputProvider   htmlOut;
+    OutputModifierManager       outMgr;
+    SourceProviderManager       srcMgr;
+    InputModifierManager        inMgr;
+    TextEnterInputProvider      textIn;
 
-    outmgr.SetupUI(w.getOutputManagerArea() );
-    htmlout.SetupUI( w.getOutputArea() );
+    QStreamManager              stramMgr;
+
+    Q_ASSERT( QObject::connect( &htmlOut, SIGNAL( streamChanged(StreamItem*) ),
+            &stramMgr,   SLOT( onOutStreamChanged(StreamItem*) ) ) );
+
+    Q_ASSERT( QObject::connect( &outMgr, SIGNAL( streamChanged(StreamItem*) ),
+            &stramMgr,   SLOT( onOutModStreamChanged(StreamItem*) ) ) );
+
+    Q_ASSERT( QObject::connect( &srcMgr, SIGNAL( streamChanged(StreamItem*) ),
+            &stramMgr,   SLOT( onSourceStreamChanged(StreamItem*) ) ) );
+
+    Q_ASSERT( QObject::connect( &inMgr, SIGNAL( streamChanged(StreamItem*) ),
+            &stramMgr,   SLOT( onInModStreamChanged(StreamItem*) ) ) );
+
+    Q_ASSERT( QObject::connect( &textIn, SIGNAL( streamChanged(StreamItem*) ),
+            &stramMgr,   SLOT( onInStreamChanged(StreamItem*) ) ) );
+
+    htmlOut.SetupUI( w.getOutputArea() );
+    outMgr.SetupUI(  w.getOutputManagerArea() );
+    srcMgr.SetupUI(  w.getSourceManagerArea() );
+    textIn.SetupUI(  w.getInputArea() );
+    inMgr.SetupUI(   w.getInputManagerArea() );
 
 
 
     w.show();
 
 
-    QSourceManager srcMgr(
-    		w.getCmbSrcSel(),
-    		w.getActSrcHelp(),
-    		w.getActSrcConf(),
-    		w.getCmbSrcAddr(),
-    		w.getActSrcConn() );
 
 
 /*
     QStreamManager stramMgr(w.ui.editIn, w.ui.editOut);
 
 
-    Q_ASSERT( QObject::connect( w.ui.actInSend, SIGNAL( triggered() ),
-            &stramMgr,   SLOT( Triggered() ) ) );
 
     Q_ASSERT( QObject::connect( &srcMgr, SIGNAL( providerChanged(SourceProvider*) ),
             &stramMgr,   SLOT( onSourceProviderChanged(SourceProvider*) ) ) );
