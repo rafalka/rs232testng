@@ -25,31 +25,98 @@ DataChunk::~DataChunk()
     clearData();
 }
 
-DataChunk::DataChunk(const QString& fromString):
-        bufSize(0),bufPtr(NULL)
+DataChunk::DataChunk(const QString& fromString, ChunkDataType asType )
 {
-    QByteArray data = fromString.toAscii();
-    setData( reinterpret_cast<const unsigned char*>(data.constData()),
-             static_cast<size_t>( data.size() ) );
+    type    = asType;
+    objType = OBJ_QSTRING;
+    strObj  = new QString( fromString );
+}
+
+DataChunk::DataChunk(const QByteArray& fromByteArray, ChunkDataType asType )
+{
+    type    = asType;
+    objType = OBJ_QBYTEARRAY;
+    rawObj  = new QByteArray( fromByteArray );
+}
+
+
+DataChunk::DataChunk(const unsigned char* data, size_t size, ChunkDataType asType )
+{
+    type    = asType;
+    objType = OBJ_QBYTEARRAY;
+    rawObj  = new QByteArray( reinterpret_cast<const char*>(data), size );
+}
+
+DataChunk::DataChunk(const char* text, ChunkDataType asType )
+{
+    type    = asType;
+    objType = OBJ_QBYTEARRAY;
+    rawObj  = new QByteArray( text, strlen(text) );
 }
 
 QString DataChunk::toString()
 {
-    return (bufSize)
-            ? QString::fromAscii(reinterpret_cast<const char*>(getBuf()),bufSize)
-            : QString() ;
+    if ( objType == OBJ_QSTRING )
+    {
+        return *strObj;
+    }
+    else if ( objType == OBJ_QBYTEARRAY )
+    {
+        /*
+        switch(type)
+        {
+        case DT_RAW:
+        case DT_ASCII: return QString::fromAscii(rawObj->constData,rawObj->size() );
+        case DT_STRING:
+        case DT_HTML:  return OBJ_QSTRING;
+        }
+        */
+        return QString( *rawObj );
+    }
+
+    return QString();
+}
+
+QByteArray DataChunk::toByteArray()
+{
+    if ( objType == OBJ_QSTRING )
+    {
+        return strObj->toAscii();
+    }
+    else if ( objType == OBJ_QBYTEARRAY )
+    {
+        return QByteArray();
+    }
+
+    return QByteArray();
 }
 
 void DataChunk::clearData()
 {
+    if(objPtr)
+    {
+        switch(objType)
+        {
+        case OBJ_QBYTEARRAY: delete rawObj; break;
+        case OBJ_QSTRING:    delete strObj; break;
+        default: ;
+        }
+        objPtr = NULL;
+    }
+
+
+
+#if 0
     if ( (bufSize>embeddSize) && bufPtr)
     {
         free(bufPtr);
         bufPtr = NULL;
     }
     bufSize = 0;
+#endif
 }
 
+#if 0
 void DataChunk::setData(const unsigned char* data, size_t size)
 {
     if (size < embeddSize )
@@ -72,4 +139,4 @@ void DataChunk::setData(const unsigned char* data, size_t size)
     }
     bufSize = size;
 }
-
+#endif

@@ -17,6 +17,7 @@
 #include <QTextDocumentFragment>
 
 #include "TextToHtmlModifier.h"
+#include "QHelpers.h"
 
 
 const QString TextToHtmlModifier::myDisplayName =  QObject::tr( "Plain text display" );
@@ -33,13 +34,24 @@ void TextToHtmlModStreamItem::In(DataChunk* data)
 {
     if (data)
     {
+#if 0
         if ( isConnected() )
         {
             QTextDocumentFragment doc = QTextDocumentFragment::fromPlainText( data->toString() );
             QString s =  doc.toHtml();
             Flush(new DataChunk( s ));
         }
-
         delete data;
+#else
+        /*QString s =  TextToHtml( (const char*) data->getBuf(), data->getSize() );
+        s.replace('<',"&lt;");
+        s.replace(' ',"&nbsp;");
+        s.replace("\n","<BR>");
+        QTextDocumentFragment doc = QTextDocumentFragment::fromPlainText( s );
+        QString s2 =  doc.toHtml();
+        Flush( new DataChunk( QString("<code>")+s2+"</code>") );
+        */
+        Flush( data );
+#endif
     }
 }

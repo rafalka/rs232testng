@@ -18,6 +18,7 @@
 #include <QTextDocumentFragment>
 
 #include "HexToHtmlModifier.h"
+#include "QHelpers.h"
 
 
 const QString HexToHtmlModifier::myDisplayName =  QObject::tr( "HEX display" );
@@ -68,7 +69,11 @@ inline char* _htos_le(register const unsigned char* data, register char* buf, re
 
 QString HexToHtmlModStreamItem::HexToHtml( unsigned long address, const unsigned char* buf, unsigned long size)
 {
-  static const QString sep(" : ");
+  static const QString sep("&nbsp;&nbsp;");
+  static const char*   addrfmt = "<TD bgcolor=#ECF2FF><I>%1</I></TD>";
+  static const char*   hexfmt  = "<TD bgcolor=#FDFEDE>%1</TD>";
+  static const char*   asciifmt= "<TD bgcolor=#DEFEE3>%1</TD>";
+
   char          hex[OUTB_MAX_REC*3+1];
   char          asc[OUTB_MAX_REC+1];
   unsigned long cnt,r;
@@ -109,7 +114,10 @@ QString HexToHtmlModStreamItem::HexToHtml( unsigned long address, const unsigned
   hexw  = recw*(typesize*2+1)-1;
   ascw  = recw;
 
-  //out+="<code>";
+  //out+="<p style=\"font-family: monospace;\">";
+  out+="<code>";
+  out+="<table>";
+
   while (size>=typesize) /* only complete types */
   {
     r = size / typesize;
@@ -117,17 +125,18 @@ QString HexToHtmlModStreamItem::HexToHtml( unsigned long address, const unsigned
 
     sepRequired = 0;
 
+    out+="<tr>";
     // Print address field
     if ( addrType == ADDR_DEC )
     {
       //fprintf(out,"%*d: ",addrw,address);
-        out+=QString("%1").arg(address,addrw,10);
+        out+=QString(addrfmt).arg(address,addrw,10);
         sepRequired=1;
     }
     else if ( addrType == ADDR_HEX )
     {
       //fprintf(out,"%.*X: ",addrw,address);
-      out+=QString("%1").arg(address,addrw,16,QChar('0'));
+      out+=QString(addrfmt).arg(address,addrw,16,QChar('0'));
       sepRequired=1;
     }
 
@@ -151,7 +160,7 @@ QString HexToHtmlModStreamItem::HexToHtml( unsigned long address, const unsigned
       *hptr=0;
       if (sepRequired) out+=sep;
       //fprintf(out,"%-*s ",hexw,hex);
-      out+=QString("%1").arg(hex,-hexw);
+      out+=QString(hexfmt).arg(hex,-hexw);
       //out+=QString::fromAscii(hex,hexw);
 
       sepRequired=1;
@@ -176,7 +185,7 @@ QString HexToHtmlModStreamItem::HexToHtml( unsigned long address, const unsigned
 
         if (sepRequired) out+=sep;
         //fprintf(out,"%-*s ",ascw,asc);
-        out+=QString("%1").arg(asc,-ascw);
+        out+=QString(asciifmt).arg(TextToHtml(asc,aptr-asc),-ascw);
         //out+=doc.toHtml();
         sepRequired=1;
       }
@@ -194,21 +203,22 @@ QString HexToHtmlModStreamItem::HexToHtml( unsigned long address, const unsigned
         *aptr++ = 0;
         if (sepRequired) out+=sep;
         //fprintf(out,"%-*S ",ascw,asc);
-        out+=QString("%1 ").arg(QString::fromWCharArray((wchar_t*)asc,aptr-((wchar_t*)asc) ), -ascw);
+        out+=QString(asciifmt).arg(QString::fromWCharArray((wchar_t*)asc,aptr-((wchar_t*)asc) ), -ascw);
         sepRequired=1;
 
       }
     }
 
     //fprintf(out,"\n");
-    out+="\n";
+    out+="</tr>\n";
 
     r *= typesize;
     buf     += r;
     address += r;
     size    -= r;
   }
-  //out+="</code>";
+  out+="</table>";
+  out+="</code>";
   return out;
 }
 
@@ -224,10 +234,12 @@ void HexToHtmlModStreamItem::In(DataChunk* data)
                     HexToHtml(0, data->getBuf(), data->getSize() )
             ));
 #else
-            QTextDocumentFragment doc = QTextDocumentFragment::fromPlainText( HexToHtml(0, data->getBuf(), data->getSize() ) ) ;
-            QString s =  "<code>\n"+doc.toHtml()+"\n</code>";
+            QByteArray arr = data->toByteArray();
+            QString    s   = HexToHtml(0, reinterpret_cast<const unsigned char*>(arr.constData()), arr.size() );
+            //QTextDocumentFragment doc = QTextDocumentFragment::fromPlainText( HexToHtml(0, data->getBuf(), data->getSize() ) ) ;
+            //QString s =  "<code>\n"+doc.toHtml()+"\n</code>";
             QTextDocumentFragment doc2 = QTextDocumentFragment::fromPlainText( s ) ;
-            Flush(new DataChunk( doc2.toHtml() ));
+            Flush(new DataChunk( s,  DataChunk::DT_HTML ) );
 #endif
         }
 
