@@ -24,5 +24,7 @@
 QStandardItem* genStandardItem(const QString& Title, const char* IconResPath, int ID);
 QStandardItem* genStandardItemSeparator();
 
+QString TextToHtml(const char* str, size_t size);
+
 
 #endif /* QHELPERS_H_ */

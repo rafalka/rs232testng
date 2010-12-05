@@ -20,8 +20,19 @@ void  HtmlDisplayStreamItem::In(DataChunk* data)
     if (dest)
     {
         dest->moveCursor(QTextCursor::End);
-        dest->insertHtml(data->toString());
-        //dest->insertPlainText(data->toString());
+        switch( data->Type() )
+        {
+        case DataChunk::DT_ASCII:
+        case DataChunk::DT_RAW:
+        case DataChunk::DT_STRING:
+            dest->insertPlainText(data->toString());
+            break;
+        case DataChunk::DT_HTML:
+            dest->insertHtml(data->toString());
+            break;
+        default:
+            ;
+        }
     }
     if (data) delete data;
 
