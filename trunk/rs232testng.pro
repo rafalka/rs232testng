@@ -50,9 +50,9 @@ SOURCES += outmod/HexToHtmlModifier.cpp \
     QDynSelDock.cpp \
     main.cpp \
     rs232testng.cpp
-FORMS += srcprov/SerialSourceProvider.ui \
+FORMS += inmod/InputModifierManager.ui \
+    srcprov/SerialSourceProvider.ui \
     outmod/OutputModifierManager.ui \
-    inmod/InputModifierManager.ui \
     inprov/TextEnterInputProvider.ui \
     srcprov/SourceProviderManager.ui \
     outprov/HtmlDisplayOutputProvider.ui \
