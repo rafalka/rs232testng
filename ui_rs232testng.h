@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'rs232testng.ui'
 **
-** Created: Sat 4. Dec 23:43:08 2010
+** Created: Sun 5. Dec 12:45:48 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -54,7 +54,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(727, 499);
+        MainWindow->resize(729, 478);
         MainWindow->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         MainWindow->setDockOptions(QMainWindow::AnimatedDocks);
         actSrcConn = new QAction(MainWindow);
@@ -148,6 +148,7 @@ public:
 
         verticalLayout_3->addWidget(InputArea);
 
+        verticalLayout_3->setStretch(1, 1);
         splitter->addWidget(inputGroupFrame);
         outputGroupFrame = new QFrame(splitter);
         outputGroupFrame->setObjectName(QString::fromUtf8("outputGroupFrame"));
@@ -168,10 +169,12 @@ public:
 
         verticalLayout_2->addWidget(OutputArea);
 
+        verticalLayout_2->setStretch(1, 1);
         splitter->addWidget(outputGroupFrame);
 
         verticalLayout->addWidget(splitter);
 
+        verticalLayout->setStretch(1, 1);
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));

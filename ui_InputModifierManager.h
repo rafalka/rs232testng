@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'InputModifierManager.ui'
 **
-** Created: Sat 4. Dec 23:43:08 2010
+** Created: Sun 5. Dec 12:50:16 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -39,8 +39,8 @@ public:
     {
         if (InputModifierManagerUI->objectName().isEmpty())
             InputModifierManagerUI->setObjectName(QString::fromUtf8("InputModifierManagerUI"));
-        InputModifierManagerUI->resize(626, 40);
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        InputModifierManagerUI->resize(383, 28);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(InputModifierManagerUI->sizePolicy().hasHeightForWidth());
@@ -100,6 +100,8 @@ public:
 
         horizontalLayout->addWidget(outCtrlFrame);
 
+        horizontalLayout->setStretch(0, 1);
+        horizontalLayout->setStretch(2, 4);
 
         retranslateUi(InputModifierManagerUI);
 

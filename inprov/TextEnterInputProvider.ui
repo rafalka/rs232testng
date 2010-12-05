@@ -23,7 +23,7 @@
    <property name="spacing">
     <number>4</number>
    </property>
-   <item row="9" column="3">
+   <item row="8" column="2">
     <widget class="QToolButton" name="btnShowInHist">
      <property name="text">
       <string>History</string>
@@ -33,7 +33,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="0" rowspan="4" colspan="3">
+   <item row="5" column="0" rowspan="4" colspan="2">
     <widget class="QPlainTextEdit" name="editIn">
      <property name="minimumSize">
       <size>
@@ -43,7 +43,7 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="3">
+   <item row="7" column="2">
     <widget class="QToolButton" name="btnShowMacros">
      <property name="text">
       <string>Macros</string>
@@ -53,7 +53,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="3">
+   <item row="5" column="2">
     <widget class="QToolButton" name="btnInSend">
      <property name="font">
       <font>
@@ -76,17 +76,10 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
   </layout>
   <action name="actInHelp">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/16/res/16/dialog-information.png</normaloff>:/buttons/16/res/16/dialog-information.png</iconset>
    </property>
    <property name="text">
@@ -98,7 +91,7 @@
   </action>
   <action name="actInConf">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/16/res/16/configure.png</normaloff>:/buttons/16/res/16/configure.png</iconset>
    </property>
    <property name="text">
@@ -110,7 +103,7 @@
   </action>
   <action name="actInSend">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/22/res/return.png</normaloff>:/buttons/22/res/return.png</iconset>
    </property>
    <property name="text">
@@ -122,7 +115,7 @@
   </action>
   <action name="actShowInHist">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/16/res/16/arrow-down-double.png</normaloff>:/buttons/16/res/16/arrow-down-double.png</iconset>
    </property>
    <property name="text">
@@ -134,7 +127,7 @@
   </action>
   <action name="actShowMacros">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/16/res/16/arrow-left-double.png</normaloff>:/buttons/16/res/16/arrow-left-double.png</iconset>
    </property>
    <property name="text">
@@ -144,7 +137,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections/>
 </ui>
