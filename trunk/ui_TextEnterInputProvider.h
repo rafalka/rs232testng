@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TextEnterInputProvider.ui'
 **
-** Created: Sat 4. Dec 23:43:08 2010
+** Created: Sun 5. Dec 12:54:28 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,7 +14,6 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QPlainTextEdit>
@@ -36,7 +35,6 @@ public:
     QPlainTextEdit *editIn;
     QToolButton *btnShowMacros;
     QToolButton *btnInSend;
-    QFrame *line;
 
     void setupUi(QWidget *TextEnterInputProviderUI)
     {
@@ -81,19 +79,19 @@ public:
         btnShowInHist->setObjectName(QString::fromUtf8("btnShowInHist"));
         btnShowInHist->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-        gridLayout->addWidget(btnShowInHist, 9, 3, 1, 1);
+        gridLayout->addWidget(btnShowInHist, 8, 2, 1, 1);
 
         editIn = new QPlainTextEdit(TextEnterInputProviderUI);
         editIn->setObjectName(QString::fromUtf8("editIn"));
         editIn->setMinimumSize(QSize(120, 48));
 
-        gridLayout->addWidget(editIn, 6, 0, 4, 3);
+        gridLayout->addWidget(editIn, 5, 0, 4, 2);
 
         btnShowMacros = new QToolButton(TextEnterInputProviderUI);
         btnShowMacros->setObjectName(QString::fromUtf8("btnShowMacros"));
         btnShowMacros->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-        gridLayout->addWidget(btnShowMacros, 8, 3, 1, 1);
+        gridLayout->addWidget(btnShowMacros, 7, 2, 1, 1);
 
         btnInSend = new QToolButton(TextEnterInputProviderUI);
         btnInSend->setObjectName(QString::fromUtf8("btnInSend"));
@@ -105,14 +103,7 @@ public:
         btnInSend->setIconSize(QSize(22, 22));
         btnInSend->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-        gridLayout->addWidget(btnInSend, 6, 3, 1, 1);
-
-        line = new QFrame(TextEnterInputProviderUI);
-        line->setObjectName(QString::fromUtf8("line"));
-        line->setFrameShape(QFrame::VLine);
-        line->setFrameShadow(QFrame::Sunken);
-
-        gridLayout->addWidget(line, 1, 1, 1, 1);
+        gridLayout->addWidget(btnInSend, 5, 2, 1, 1);
 
 
         retranslateUi(TextEnterInputProviderUI);

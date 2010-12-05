@@ -6,17 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>626</width>
-    <height>40</height>
+    <width>383</width>
+    <height>28</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0,4">
    <property name="spacing">
     <number>4</number>
    </property>
@@ -93,7 +93,7 @@
   </layout>
   <action name="actInHelp">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/16/res/16/dialog-information.png</normaloff>:/buttons/16/res/16/dialog-information.png</iconset>
    </property>
    <property name="text">
@@ -105,7 +105,7 @@
   </action>
   <action name="actInConf">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/16/res/16/configure.png</normaloff>:/buttons/16/res/16/configure.png</iconset>
    </property>
    <property name="text">
@@ -117,7 +117,7 @@
   </action>
   <action name="actInSend">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/22/res/return.png</normaloff>:/buttons/22/res/return.png</iconset>
    </property>
    <property name="text">
@@ -129,7 +129,7 @@
   </action>
   <action name="actShowInHist">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/16/res/16/arrow-down-double.png</normaloff>:/buttons/16/res/16/arrow-down-double.png</iconset>
    </property>
    <property name="text">
@@ -141,7 +141,7 @@
   </action>
   <action name="actShowMacros">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/buttons/16/res/16/arrow-left-double.png</normaloff>:/buttons/16/res/16/arrow-left-double.png</iconset>
    </property>
    <property name="text">
@@ -150,7 +150,7 @@
   </action>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

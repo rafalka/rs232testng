@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'SourceProviderManager.ui'
 **
-** Created: Sat 4. Dec 23:43:08 2010
+** Created: Sun 5. Dec 12:55:48 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -18,7 +18,6 @@
 #include <QtGui/QFrame>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
-#include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,20 +29,24 @@ public:
     QComboBox *cmbSrcSel;
     QFrame *line_2;
     QWidget *srcCtrlArea;
-    QFrame *line_4;
-    QToolButton *btnAppExit;
 
     void setupUi(QWidget *SourceProviderManagerUI)
     {
         if (SourceProviderManagerUI->objectName().isEmpty())
             SourceProviderManagerUI->setObjectName(QString::fromUtf8("SourceProviderManagerUI"));
-        SourceProviderManagerUI->resize(400, 33);
+        SourceProviderManagerUI->resize(831, 37);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(SourceProviderManagerUI->sizePolicy().hasHeightForWidth());
+        SourceProviderManagerUI->setSizePolicy(sizePolicy);
         horizontalLayout = new QHBoxLayout(SourceProviderManagerUI);
         horizontalLayout->setContentsMargins(4, 4, 4, 4);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         cmbSrcSel = new QComboBox(SourceProviderManagerUI);
         cmbSrcSel->setObjectName(QString::fromUtf8("cmbSrcSel"));
         cmbSrcSel->setMinimumSize(QSize(120, 0));
+        cmbSrcSel->setMaximumSize(QSize(16777215, 16777215));
 
         horizontalLayout->addWidget(cmbSrcSel);
 
@@ -59,18 +62,8 @@ public:
 
         horizontalLayout->addWidget(srcCtrlArea);
 
-        line_4 = new QFrame(SourceProviderManagerUI);
-        line_4->setObjectName(QString::fromUtf8("line_4"));
-        line_4->setFrameShape(QFrame::VLine);
-        line_4->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout->addWidget(line_4);
-
-        btnAppExit = new QToolButton(SourceProviderManagerUI);
-        btnAppExit->setObjectName(QString::fromUtf8("btnAppExit"));
-
-        horizontalLayout->addWidget(btnAppExit);
-
+        horizontalLayout->setStretch(0, 1);
+        horizontalLayout->setStretch(2, 4);
 
         retranslateUi(SourceProviderManagerUI);
 
@@ -80,7 +73,6 @@ public:
     void retranslateUi(QWidget *SourceProviderManagerUI)
     {
         SourceProviderManagerUI->setWindowTitle(QApplication::translate("SourceProviderManagerUI", "Form", 0, QApplication::UnicodeUTF8));
-        btnAppExit->setText(QApplication::translate("SourceProviderManagerUI", "...", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

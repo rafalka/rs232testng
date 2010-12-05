@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'OutputModifierManager.ui'
 **
-** Created: Sat 4. Dec 23:43:08 2010
+** Created: Sun 5. Dec 12:41:39 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -73,6 +73,8 @@ public:
 
         horizontalLayout->addWidget(outCtrlPanel);
 
+        horizontalLayout->setStretch(0, 1);
+        horizontalLayout->setStretch(2, 4);
 
         retranslateUi(OutputModifierManagerUI);
 
