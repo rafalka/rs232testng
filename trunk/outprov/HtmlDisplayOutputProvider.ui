@@ -21,12 +21,15 @@
     <number>4</number>
    </property>
    <item>
-    <widget class="QTextEdit" name="editOut">
+    <widget class="QCustTextEdit" name="editOut">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="lineWrapMode">
+      <enum>QTextEdit::NoWrap</enum>
      </property>
      <property name="readOnly">
       <bool>false</bool>
@@ -35,6 +38,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header location="global">QCustTextEdit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
