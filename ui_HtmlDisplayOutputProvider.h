@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'HtmlDisplayOutputProvider.ui'
 **
-** Created: Sat 4. Dec 23:43:08 2010
+** Created: Thu 6. Jan 00:03:09 2011
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -10,12 +10,12 @@
 #ifndef UI_HTMLDISPLAYOUTPUTPROVIDER_H
 #define UI_HTMLDISPLAYOUTPUTPROVIDER_H
 
+#include <QCustTextEdit.h>
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QHeaderView>
-#include <QtGui/QTextEdit>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
@@ -25,7 +25,7 @@ class Ui_HtmlDisplayOutputProviderUI
 {
 public:
     QVBoxLayout *verticalLayout;
-    QTextEdit *editOut;
+    QCustTextEdit *editOut;
 
     void setupUi(QWidget *HtmlDisplayOutputProviderUI)
     {
@@ -36,13 +36,14 @@ public:
         verticalLayout->setSpacing(4);
         verticalLayout->setContentsMargins(4, 4, 4, 4);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        editOut = new QTextEdit(HtmlDisplayOutputProviderUI);
+        editOut = new QCustTextEdit(HtmlDisplayOutputProviderUI);
         editOut->setObjectName(QString::fromUtf8("editOut"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(editOut->sizePolicy().hasHeightForWidth());
         editOut->setSizePolicy(sizePolicy);
+        editOut->setLineWrapMode(QTextEdit::NoWrap);
         editOut->setReadOnly(false);
 
         verticalLayout->addWidget(editOut);

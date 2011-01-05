@@ -1,4 +1,5 @@
 INPUT(
+./debug\QCustTextEdit.o
 ./debug\HexToHtmlModifier.o
 ./debug\QHelpers.o
 ./debug\TextToHtmlModifier.o
@@ -22,6 +23,7 @@ INPUT(
 ./debug\QDynSelDock.o
 ./debug\main.o
 ./debug\rs232testng.o
+./debug\moc_QCustTextEdit.o
 ./debug\moc_OutputModifierManager.o
 ./debug\moc_InputProviderFactory.o
 ./debug\moc_InputModifierManager.o

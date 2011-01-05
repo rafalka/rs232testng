@@ -181,7 +181,7 @@ QString HexToHtmlModStreamItem::HexToHtml( unsigned long address, const unsigned
           ptr++;
         }
 
-        *aptr++ = 0;
+        *aptr = 0;
 
         if (sepRequired) out+=sep;
         //fprintf(out,"%-*s ",ascw,asc);
@@ -200,7 +200,7 @@ QString HexToHtmlModStreamItem::HexToHtml( unsigned long address, const unsigned
           ptr++;
         }
 
-        *aptr++ = 0;
+        *aptr = 0;
         if (sepRequired) out+=sep;
         //fprintf(out,"%-*S ",ascw,asc);
         out+=QString(asciifmt).arg(QString::fromWCharArray((wchar_t*)asc,aptr-((wchar_t*)asc) ), -ascw);

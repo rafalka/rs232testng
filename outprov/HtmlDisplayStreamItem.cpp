@@ -25,10 +25,14 @@ void  HtmlDisplayStreamItem::In(DataChunk* data)
         case DataChunk::DT_ASCII:
         case DataChunk::DT_RAW:
         case DataChunk::DT_STRING:
+            dest->setUpdatesEnabled(false);
             dest->insertPlainText(data->toString());
+            dest->setUpdatesEnabled(true);
             break;
         case DataChunk::DT_HTML:
+            dest->setUpdatesEnabled(false);
             dest->insertHtml(data->toString());
+            dest->setUpdatesEnabled(true);
             break;
         default:
             ;

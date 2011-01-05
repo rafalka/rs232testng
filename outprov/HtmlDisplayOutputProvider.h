@@ -18,6 +18,7 @@
 
 // Forward declaration
 class QWidget;
+class QTimer;
 namespace Ui {
     class HtmlDisplayOutputProviderUI;
 }

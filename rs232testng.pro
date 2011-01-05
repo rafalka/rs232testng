@@ -2,7 +2,8 @@ TEMPLATE = app
 TARGET = rs232testng
 QT += core \
     gui
-HEADERS += outmod/HexToHtmlModifier.h \
+HEADERS += QCustTextEdit.h \
+    outmod/HexToHtmlModifier.h \
     QHelpers.h \
     outmod/TextToHtmlModifier.h \
     outprov/HtmlDisplayStreamItem.h \
@@ -27,7 +28,8 @@ HEADERS += outmod/HexToHtmlModifier.h \
     plugapi/vartype.h \
     QDynSelDock.h \
     rs232testng.h
-SOURCES += outmod/HexToHtmlModifier.cpp \
+SOURCES += QCustTextEdit.cpp \
+    outmod/HexToHtmlModifier.cpp \
     QHelpers.cpp \
     outmod/TextToHtmlModifier.cpp \
     outprov/HtmlDisplayStreamItem.cpp \
