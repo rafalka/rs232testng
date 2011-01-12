@@ -1,4 +1,6 @@
 INPUT(
+./release\ProviderManager.o
+./release\ProviderFactory.o
 ./release\QCustTextEdit.o
 ./release\HexToHtmlModifier.o
 ./release\QHelpers.o
@@ -23,13 +25,14 @@ INPUT(
 ./release\QDynSelDock.o
 ./release\main.o
 ./release\rs232testng.o
+./release\moc_ProviderManager.o
 ./release\moc_QCustTextEdit.o
 ./release\moc_OutputModifierManager.o
-./release\moc_InputProviderFactory.o
 ./release\moc_InputModifierManager.o
 ./release\moc_TextEditStreamItem.o
 ./release\moc_TextEnterInputProvider.o
 ./release\moc_SourceProviderManager.o
+./release\moc_SerialSourceProvider.o
 ./release\moc_main.o
 ./release\moc_DataProvider.o
 ./release\moc_rs232testng.o

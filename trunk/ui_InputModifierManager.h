@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'InputModifierManager.ui'
 **
-** Created: Sun 5. Dec 12:50:16 2010
+** Created: Wed 12. Jan 21:48:58 2011
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'SerialSourceProvider.ui'
 **
-** Created: Sat 4. Dec 23:43:08 2010
+** Created: Wed 12. Jan 21:48:58 2011
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -23,7 +23,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Form
+class Ui_SerialSourceProviderUI
 {
 public:
     QHBoxLayout *horizontalLayout;
@@ -31,16 +31,16 @@ public:
     QSpacerItem *horizontalSpacer;
     QToolButton *btnSrcConn;
 
-    void setupUi(QWidget *Form)
+    void setupUi(QWidget *SerialSourceProviderUI)
     {
-        if (Form->objectName().isEmpty())
-            Form->setObjectName(QString::fromUtf8("Form"));
-        Form->resize(400, 32);
-        horizontalLayout = new QHBoxLayout(Form);
+        if (SerialSourceProviderUI->objectName().isEmpty())
+            SerialSourceProviderUI->setObjectName(QString::fromUtf8("SerialSourceProviderUI"));
+        SerialSourceProviderUI->resize(400, 32);
+        horizontalLayout = new QHBoxLayout(SerialSourceProviderUI);
         horizontalLayout->setSpacing(4);
         horizontalLayout->setContentsMargins(4, 4, 4, 4);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        editSrcAddress = new QComboBox(Form);
+        editSrcAddress = new QComboBox(SerialSourceProviderUI);
         editSrcAddress->setObjectName(QString::fromUtf8("editSrcAddress"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -55,28 +55,28 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        btnSrcConn = new QToolButton(Form);
+        btnSrcConn = new QToolButton(SerialSourceProviderUI);
         btnSrcConn->setObjectName(QString::fromUtf8("btnSrcConn"));
         btnSrcConn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
         horizontalLayout->addWidget(btnSrcConn);
 
 
-        retranslateUi(Form);
+        retranslateUi(SerialSourceProviderUI);
 
-        QMetaObject::connectSlotsByName(Form);
+        QMetaObject::connectSlotsByName(SerialSourceProviderUI);
     } // setupUi
 
-    void retranslateUi(QWidget *Form)
+    void retranslateUi(QWidget *SerialSourceProviderUI)
     {
-        Form->setWindowTitle(QApplication::translate("Form", "Form", 0, QApplication::UnicodeUTF8));
-        btnSrcConn->setText(QApplication::translate("Form", "Connect", 0, QApplication::UnicodeUTF8));
+        SerialSourceProviderUI->setWindowTitle(QApplication::translate("SerialSourceProviderUI", "Form", 0, QApplication::UnicodeUTF8));
+        btnSrcConn->setText(QApplication::translate("SerialSourceProviderUI", "Connect", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Form: public Ui_Form {};
+    class SerialSourceProviderUI: public Ui_SerialSourceProviderUI {};
 } // namespace Ui
 
 QT_END_NAMESPACE

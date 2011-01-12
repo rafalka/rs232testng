@@ -30,15 +30,15 @@ SourceProviderManager::SourceProviderManager():
 {
 	//ComboItemAddCmd srcEnumerator(cmbSourceSelect);
 	//SrcFac.EnumProviders( srcEnumerator );
+    CONF_START_GROUP( SourceProviderManager );
+    CONF_READ_VAL( lastGoodProviderIdx, 0 );
+
 }
 
 void SourceProviderManager::SetupProviderUI()
 {
     if (currentProvider)
     {
-        Q_ASSERT( QObject::connect( currentProvider, SIGNAL( streamChanged(StreamItem*) ),
-                this,   SLOT( onStreamChanged(StreamItem*) ) ) );
-
         if (ui) currentProvider->SetupUI(ui->srcCtrlArea);
     }
 }
@@ -46,6 +46,7 @@ void SourceProviderManager::SetupProviderUI()
 void SourceProviderManager::SetupUI(QWidget *parent)
 {
     if (ui) delete ui;
+
     ui = new Ui::SourceProviderManagerUI();
     ui->setupUi(parent);
 
@@ -53,6 +54,9 @@ void SourceProviderManager::SetupUI(QWidget *parent)
             this,   SLOT( cmbSourceSelectActivated(int) ) ) );
 
     ui->cmbSrcSel->setModel( SrcFac.getItemsModel() );
+
+    ui->cmbSrcSel->setCurrentIndex(lastGoodProviderIdx);
+    cmbSourceSelectActivated( ui->cmbSrcSel->currentIndex() );
 
 }
 
@@ -76,8 +80,16 @@ void SourceProviderManager::setProvider(DataProvider* newProvider)
 
     emit streamChanged( (newProvider) ? newProvider->getDefaultStream() : 0 );
 
+    //ui->srcCtrlArea->destroy(false,true);
     if (tmpProvider) SrcFac.ReleaseProvider(tmpProvider);
 
+    if (currentProvider)
+    {
+        Q_ASSERT( QObject::connect( currentProvider, SIGNAL( streamChanged(StreamItem*) ),
+                this,   SLOT( onStreamChanged(StreamItem*) ) ) );
+
+        SetupProviderUI();
+    }
 }
 
 
@@ -95,16 +107,25 @@ void SourceProviderManager::actShowConfTriggered()
 
 void SourceProviderManager::cmbSourceSelectActivated(int index)
 {
-    DataProvider* tmpProvider = SrcFac.GetProviderFromIndex(index);
-    if (tmpProvider)
+    if (index>=0)
     {
-        setProvider(tmpProvider);
-        lastGoodProviderIdx = index;
+        DataProvider* tmpProvider = SrcFac.GetProviderFromIndex(index);
+        if (tmpProvider)
+        {
+            setProvider(tmpProvider);
+            lastGoodProviderIdx = index;
+        }
+        else
+        {
+            if (!currentProvider) lastGoodProviderIdx = -1;
+            if (ui) ui->cmbSrcSel->setCurrentIndex(lastGoodProviderIdx);
+        }
     }
     else
     {
-        if (!currentProvider) lastGoodProviderIdx = -1;
-        if (ui) ui->cmbSrcSel->setCurrentIndex(lastGoodProviderIdx);
+        // Release current provider if there's no valid selection
+        setProvider(0);
+        lastGoodProviderIdx = -1;
     }
 }
 
@@ -133,10 +154,10 @@ bool SourceProviderManager::SourcesEnumCallback(int itemID, const QString& name,
 
 SourceProviderManager::~SourceProviderManager()
 {
-	// TODO Auto-generated destructor stub
     CONF_START_GROUP( SourceProviderManager );
     CONF_STORE_VAL( lastGoodProviderIdx );
 
+    delete ui;
 }
 
 

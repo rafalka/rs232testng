@@ -30,6 +30,7 @@ enum providers {
     PR_LASTVAL
 };
 
+/*
 void SourceProviderFactory::EnumProviders(GuiItemCmd& callbackCmd)
 {
     callbackCmd.doWith( SerialSourceProvider::myDisplayName ,GuiItemCmd::NoIcon, PR_SERIAL );
@@ -37,7 +38,7 @@ void SourceProviderFactory::EnumProviders(GuiItemCmd& callbackCmd)
     callbackCmd.doWith( QObject::tr("Config"),GuiItemCmd::NoIcon,PR_INTCONFIG);
 
 }
-
+*/
 
 DataProvider* SourceProviderFactory::GetProviderFromIndex(int idx)
 {
@@ -61,9 +62,9 @@ DataProvider* SourceProviderFactory::GetProviderFromIndex(int idx)
     return provider;
 }
 
-void SourceProviderFactory::genItemsInfoList()
+QStandardItemModel* SourceProviderFactory::genItemsInfoList()
 {
-    if (! itemsInfoList)  itemsInfoList =  new QStandardItemModel(0,1);
+    QStandardItemModel*  itemsInfoList =  new QStandardItemModel(0,1);
 
     itemsInfoList->appendRow( genStandardItem( SerialSourceProvider::myDisplayName , "", PR_SERIAL) );
 
@@ -71,15 +72,7 @@ void SourceProviderFactory::genItemsInfoList()
 // For Further use...
     itemsInfoList->appendRow( genStandardItemSeparator() );
     itemsInfoList->appendRow( genStandardItem( QObject::tr("Configure Data sources...") , ":/buttons/16/res/16/configure.png", PR_INTCONFIG) );
-}
-SourceProviderFactory::SourceProviderFactory()
-{
-	// TODO Auto-generated constructor stub
 
+    return itemsInfoList;
 }
 
-SourceProviderFactory::~SourceProviderFactory()
-{
-    if (itemsInfoList) delete itemsInfoList;
-	// TODO Auto-generated destructor stub
-}
