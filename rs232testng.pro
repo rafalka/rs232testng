@@ -1,8 +1,12 @@
+CONFIG += qt \
+    debug
 TEMPLATE = app
 TARGET = rs232testng
 QT += core \
     gui
-HEADERS += QCustTextEdit.h \
+HEADERS += ProviderManager.h \
+    ProviderFactory.h \
+    QCustTextEdit.h \
     outmod/HexToHtmlModifier.h \
     QHelpers.h \
     outmod/TextToHtmlModifier.h \
@@ -28,7 +32,9 @@ HEADERS += QCustTextEdit.h \
     plugapi/vartype.h \
     QDynSelDock.h \
     rs232testng.h
-SOURCES += QCustTextEdit.cpp \
+SOURCES += ProviderManager.cpp \
+    ProviderFactory.cpp \
+    QCustTextEdit.cpp \
     outmod/HexToHtmlModifier.cpp \
     QHelpers.cpp \
     outmod/TextToHtmlModifier.cpp \
@@ -52,7 +58,8 @@ SOURCES += QCustTextEdit.cpp \
     QDynSelDock.cpp \
     main.cpp \
     rs232testng.cpp
-FORMS += inmod/InputModifierManager.ui \
+FORMS += ProviderManager.ui \
+    inmod/InputModifierManager.ui \
     srcprov/SerialSourceProvider.ui \
     outmod/OutputModifierManager.ui \
     inprov/TextEnterInputProvider.ui \
@@ -66,3 +73,4 @@ INCLUDEPATH += srcprov \
     outmod \
     inprov \
     inmod
+debug:CONFIG += console

@@ -12,9 +12,16 @@
  ******************************************************************************
  */
 
+#include <QIcon>
+#include <QString>
+#include <QVariant>
+#include <QAbstractItemModel>
+#include <QStandardItemModel>
+
 #include "OutputModifierFactory.h"
 #include "TextToHtmlModifier.h"
 #include "HexToHtmlModifier.h"
+#include "DataProvider.h"
 
 #include "QHelpers.h"
 
@@ -53,9 +60,9 @@ DataProvider* OutputModifierFactory::GetProviderFromIndex(int idx)
     return provider;
 }
 
-void OutputModifierFactory::genItemsInfoList()
+QStandardItemModel* OutputModifierFactory::genItemsInfoList()
 {
-    if (! itemsInfoList)  itemsInfoList =  new QStandardItemModel(0,1);
+    QStandardItemModel*  itemsInfoList =  new QStandardItemModel(0,1);
 
     itemsInfoList->appendRow( genStandardItem( TextToHtmlModifier::myDisplayName , "", PR_RAWTEXT) );
     itemsInfoList->appendRow( genStandardItem( HexToHtmlModifier::myDisplayName , "", PR_HEX) );
@@ -64,6 +71,8 @@ void OutputModifierFactory::genItemsInfoList()
 // For Further use...
     itemsInfoList->appendRow( genStandardItemSeparator() );
     itemsInfoList->appendRow( genStandardItem( QObject::tr("Configure External filters...") , ":/buttons/16/res/16/configure.png", PR_INTCONFIG) );
+
+    return itemsInfoList;
 }
 
 

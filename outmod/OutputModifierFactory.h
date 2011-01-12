@@ -16,34 +16,25 @@
 #ifndef OUTPUTMODIFIERFACTORY_H_
 #define OUTPUTMODIFIERFACTORY_H_
 
-#include <QObject>
-#include <QIcon>
-#include <QString>
-#include <QVariant>
-#include <QAbstractItemModel>
-#include <QStandardItemModel>
 
-#include "DataProvider.h"
+#include "ProviderFactory.h"
 
 /*
  *
  */
 #define OutModFac OutputModifierFactory::instance()
 
-class OutputModifierFactory
+class OutputModifierFactory: public ProviderFactory
 {
 private:
     static OutputModifierFactory s;
 
-    QStandardItemModel*          itemsInfoList;
-
-    void           genItemsInfoList();
-
     OutputModifierFactory();
-public:
-    QAbstractItemModel* getItemsModel() { if (!itemsInfoList) genItemsInfoList(); return itemsInfoList; }
+protected:
+    QStandardItemModel*  genItemsInfoList();
 
-    void ReleaseProvider(DataProvider* provider) { if (provider) delete provider; }
+public:
+
     DataProvider* GetProviderFromIndex(int idx);
 
     static OutputModifierFactory& instance() { return OutputModifierFactory::s; }

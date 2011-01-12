@@ -3,16 +3,24 @@
 #include <QtGui>
 #include <QApplication>
 #include <QStringList>
+#include <cstdio>
 
 #include "DataProvider.h"
+#include "ProviderFactory.h"
+#include "ProviderManager.h"
+#include "InputProviderFactory.h"
+#include "OutputModifierFactory.h"
+#include "SourceProviderFactory.h"
+
 #include "SourceProviderManager.h"
 #include "TextEnterInputProvider.h"
 #include "InputModifierManager.h"
-#include "InputProviderFactory.h"
 #include "OutputModifierManager.h"
 #include "HtmlDisplayOutputProvider.h"
 
 #include "QConfigStorage.h"
+
+#include "debug.h"
 #include "main.h"
 
 const char* modulename;
@@ -21,6 +29,12 @@ const char* modulename;
 
 int main(int argc, char *argv[])
 {
+    int res = -1;
+
+    fprintf(stderr,"No i dupa\n");
+
+    try
+    {
     QApplication a(argc, argv);
     modulename = a.applicationName().toAscii().constData();
 
@@ -43,11 +57,19 @@ int main(int argc, char *argv[])
 
     rs232testng w;
 
+#if 1
+    HtmlDisplayOutputProvider   htmlOut;
+    ProviderManager             outMgr( OutputModifierFactory::instance() );
+    ProviderManager             srcMgr( SourceProviderFactory::instance() );
+    ProviderManager             inMgr(  InputProviderFactory::instance() );
+    TextEnterInputProvider      textIn;
+#else
     HtmlDisplayOutputProvider   htmlOut;
     OutputModifierManager       outMgr;
     SourceProviderManager       srcMgr;
     InputModifierManager        inMgr;
     TextEnterInputProvider      textIn;
+#endif
 
     QStreamManager              stramMgr;
 
@@ -87,5 +109,22 @@ int main(int argc, char *argv[])
     Q_ASSERT( QObject::connect( &srcMgr, SIGNAL( providerChanged(SourceProvider*) ),
             &stramMgr,   SLOT( onSourceProviderChanged(SourceProvider*) ) ) );
 */
-    return a.exec();
+    res = a.exec();
+
+    }
+    /*
+    catch (Error &err) {
+        _ERRMSG2( "ERROR %d: %s\n", err.code() , err.msg() );
+        res = err.code();
+    }
+    */
+    catch (std::exception &err) {
+        _ERRMSG1( "ERROR %s\n", err.what() );
+        res = -1;
+    }
+    catch (...) {
+        _ERRMSG("Internal error\n");
+        res = -1;
+    }
+    return res;
 }

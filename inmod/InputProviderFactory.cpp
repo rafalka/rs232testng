@@ -11,11 +11,22 @@
  *         under the terms of the license contained in the file LICENSE
  ******************************************************************************
  */
-
 #include "InputProviderFactory.h"
 
+#include <QIcon>
+#include <SourceProviderFactory.h>
+#include <SerialSourceProvider.h>
+
+
+#include "QHelpers.h"
 // Instancing
 InputProviderFactory InputProviderFactory::s;
+
+/*
+typedef bool (QObject::*InputProviderEnumCallback)(int            itemID,
+                                                   const QString& name,
+                                                   const QIcon*   icon,
+                                                   QVariant*      cbParam );
 
 int InputProviderFactory::EnumProviders(QObject& obj, InputProviderEnumCallback cb, QVariant* cbParam)
 {
@@ -27,15 +38,54 @@ int InputProviderFactory::EnumProviders(QObject& obj, InputProviderEnumCallback 
 
     return 3;
 }
+*/
 
+enum providers {
+    PR_BADVAL,
+    PR_RAWTEXT,
+    PR_HEX,
+    PR_INTCONFIG,
+    PR_LASTVAL
+};
 
-InputProviderFactory::InputProviderFactory()
+DataProvider* InputProviderFactory::GetProviderFromIndex(int idx)
 {
-	// TODO Auto-generated constructor stub
+    const QStandardItem *item = itemsInfoList->item(idx);
+    if (!item ) return NULL;
 
+    DataProvider* provider;
+    switch( item->data(Qt::UserRole).toInt() )
+    {
+/*
+    case PR_RAWTEXT:
+        provider = new TextToHtmlModifier();
+        break;
+    case PR_HEX:
+        provider = new HexToHtmlModifier();
+        break;
+*/
+    /*case PR_INTCONFIG:
+        break;*/
+
+    default:
+        provider = NULL;
+    }
+
+    return provider;
 }
 
-InputProviderFactory::~InputProviderFactory()
+QStandardItemModel* InputProviderFactory::genItemsInfoList()
 {
-	// TODO Auto-generated destructor stub
+    QStandardItemModel*  itemsInfoList =  new QStandardItemModel(0,1);
+
+  //  itemsInfoList->appendRow( genStandardItem( TextToHtmlModifier::myDisplayName , "", PR_RAWTEXT) );
+ //   itemsInfoList->appendRow( genStandardItem( HexToHtmlModifier::myDisplayName , "", PR_HEX) );
+
+    itemsInfoList->appendRow( genStandardItem( "DUPA" , "", PR_RAWTEXT) );
+// For Further use...
+    itemsInfoList->appendRow( genStandardItemSeparator() );
+    itemsInfoList->appendRow( genStandardItem( QObject::tr("Configure External filters...") , ":/buttons/16/res/16/configure.png", PR_INTCONFIG) );
+
+    return itemsInfoList;
 }
+
