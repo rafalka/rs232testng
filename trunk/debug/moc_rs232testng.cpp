@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rs232testng.h'
 **
-** Created: Wed 12. Jan 21:49:34 2011
+** Created: Wed 12. Jan 22:58:03 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
