@@ -12,10 +12,7 @@
 #include "OutputModifierFactory.h"
 #include "SourceProviderFactory.h"
 
-#include "SourceProviderManager.h"
 #include "TextEnterInputProvider.h"
-#include "InputModifierManager.h"
-#include "OutputModifierManager.h"
 #include "HtmlDisplayOutputProvider.h"
 
 #include "QConfigStorage.h"
@@ -57,19 +54,11 @@ int main(int argc, char *argv[])
 
     rs232testng w;
 
-#if 1
     HtmlDisplayOutputProvider   htmlOut;
     ProviderManager             outMgr( OutputModifierFactory::instance() );
     ProviderManager             srcMgr( SourceProviderFactory::instance() );
     ProviderManager             inMgr(  InputProviderFactory::instance() );
     TextEnterInputProvider      textIn;
-#else
-    HtmlDisplayOutputProvider   htmlOut;
-    OutputModifierManager       outMgr;
-    SourceProviderManager       srcMgr;
-    InputModifierManager        inMgr;
-    TextEnterInputProvider      textIn;
-#endif
 
     QStreamManager              stramMgr;
 
