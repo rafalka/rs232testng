@@ -1,0 +1,1 @@
+Simple GUI terminal program for various protocols and inputs (serial, USB, TCP, ...)
